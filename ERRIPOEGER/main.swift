@@ -7,7 +7,12 @@
 
 import Foundation
 
-print("Hello, Workjkjjkgld!")
-print("Hello, Workjkjjkgld!")
-print("Hello, Workjkjjkgld!")
+let vetor = ["asdasd", "qweqwe", "zczxc", "rtyry"];
 
+print("tamanho fo vetor ", vetor.count)
+
+for inventario in 0..<vetor.count {
+    
+    print(vetor[inventario])
+    
+}
