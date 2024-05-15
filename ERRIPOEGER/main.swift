@@ -67,7 +67,7 @@ print("""
       ┃                 ┃             ┃
       ┃                 ┃             ┃
      ┃                  ┃              ┃
-     ┃                  ┃              ┃
+     ┃                  ┃      👨🏻‍❤️‍👨🏾      ┃
      ┃                  ┃              ┃
      ┃                  ┃              ┃
      ┃                  ┃              ┃
@@ -86,6 +86,41 @@ print("""
 slowPrint(text: "A construção é monumental e quase que etérea, você não consegue imaginar como que isso tudo poderia teer sido construído por seres vivos mortais. Você olha para cima para ver a imensidão e o prédio some em meio às nuvens.")
 
 slowPrint(text: "Você anda em volta e analisa as paredes, parece que não há portas. Mas deve haver um meio de entrar.")
+
+
+print("""
+    1 - Vasculhar pela areia
+    2 - Tatear as paredes
+    3 - Olhar de perto
+    4 - Procurar no google
+""")
+
+var choice = readLine()!
+
+switch Int(choice)! {
+    
+case 1:
+    print("Você escava um pouco da areia ao redor e encontra algo enterrado. É uma alavanca quebrada. Talvez seja útil para alguma coisa.")
+    break;
+    
+case 2:
+    print("QUENTE! Ficar o dia inteiro nesse sol escaldante deixou as paredes quase pegando fogo.")
+    break;
+    
+case 3:
+    print("Você força a vista e tenta identificar alguma coisa nos desenhos da parede. Tudo empoeirado. Você encontra um espaço que parece algum tipo de encaixe, mas não parece ser útil por enquanto.")
+    break;
+    
+case 4:
+    print("Boa tentativa, mas não tem sinal de internet por aqui.")
+    break;
+    
+default:
+    break;
+    
+}
+
+
 
 
 
