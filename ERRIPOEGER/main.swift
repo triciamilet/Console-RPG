@@ -9,8 +9,10 @@ import Foundation
 
 
 //Game's func
+
+//Função do inventário
 var inventoryList: [(qty: Int, item: String)] = []
-func inventory() {
+func inventory() -> String {
     
     print("Itens disponiveis")
     for i in 0..<inventoryList.count {
@@ -25,9 +27,9 @@ func inventory() {
     if let confirmedPosition = listPosition, let number = Int(confirmedPosition) {
         
         if number == 0 {
-            return
+            return ""
         } else if number - 1 < inventoryList.count {
-            print("usou o item ", inventoryList[number-1].item)
+            return inventoryList[number-1].item
         } else {
             print("Esse item não existe.")
             inventory()
@@ -41,9 +43,10 @@ func inventory() {
 //    listPosition = Optional("3")
 //    confirmedPosition = "3"
 //    number = 3
-    
+    return ""
 }
 
+//Função texto de história é mostrado devagar
 func slowPrint(text: String) {
     let separatedText = text.split(separator: " ")
     setbuf(__stdoutp, nil) //To not bug the Console
@@ -55,6 +58,7 @@ func slowPrint(text: String) {
     readLine()
 }
 
+//Função texto de escolha é mostrado devagar
 func slowChoice(text: String) {
     let separatedText = text.split(separator: " ")
     setbuf(__stdoutp, nil) //To not bug the Console
@@ -65,6 +69,20 @@ func slowChoice(text: String) {
     print()
     print()
 }
+
+//Função selecionar Isqueiro
+func selectLighter() {
+    var selectedItem = inventory()
+
+    if selectedItem == "Isqueiro" {
+        print("Você acendeu o isqueiro e o corredor se iluminou na sua frente.")
+    } else {
+        print("Não sei onde esse item pode ser útil.. Escolha outro")
+        selectLighter()
+    }
+}
+
+
 
 inventoryList.append((1, "Isqueiro"))
 inventoryList.append((2, "Cenoura"))
@@ -153,8 +171,8 @@ slowPrint(text: "Você anda em volta e analisa as paredes, parece que não há p
 
 
 var alavanca = false
-primeiraEscolha()
-func primeiraEscolha() {
+firstChoice()
+func firstChoice() {
     print("""
     1 - Vasculhar pela areia
     2 - Tatear as paredes
@@ -171,12 +189,12 @@ switch number{
 case 1:
     slowChoice(text:"Você escava um pouco da areia ao redor e encontra algo enterrado. É uma alavanca quebrada. Talvez seja útil para alguma coisa.")
     alavanca = true
-    primeiraEscolha()
+    firstChoice()
     break
     
 case 2:
     slowChoice(text:"QUENTE! Ficar o dia inteiro nesse sol escaldante deixou as paredes quase pegando fogo.")
-    primeiraEscolha()
+    firstChoice()
     break
     
 case 3:
@@ -186,21 +204,21 @@ case 3:
         
     } else {
         slowChoice(text:"Você força a vista e tenta identificar alguma coisa nos desenhos da parede. Tudo empoeirado. Você encontra um espaço que parece algum tipo de encaixe, mas não parece ser útil por enquanto.")
-        primeiraEscolha()
+        firstChoice()
     }
     break
     
 case 4:
     slowChoice(text:"Boa tentativa, mas não tem sinal de internet por aqui. Continua tentando")
     print()
-    primeiraEscolha()
+    firstChoice()
     print()
     break
     
 default:
     slowChoice(text: "meu querido voce andou em circulos e nao chegou a lugar nenhum. Tentar de novo.")
     print()
-    primeiraEscolha()
+    firstChoice()
     print()
     break
     }
@@ -243,13 +261,94 @@ slowPrint(text: "As tochas do lado de fora se apagaram subitamente, uma a uma, e
 
 slowPrint(text: "ENTRAR.")
 
-slowPrint(text: "Você espanta qualquer edo que ameaçou sentir e atravessa a porta. BAM! A porta fechou logo atrás de você, e agora você está preso dentro da tumba.")
+slowPrint(text: "Você espanta qualquer medo que ameaçou sentir e atravessa a porta.")
 
-slowPrint(text: "Está muito escuro. Você não enxerga um palmo à frente.")
+print("""
 
-inventoryList.append((7, "Cenoura"))
-inventoryList.append((3, "Carros"))
-inventory()
+   ░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓██████████████▓▒░░▒▓█▓▒░▒▓█▓▒░
+   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░
+   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░
+   ░▒▓███████▓▒░░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░
+   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░
+   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░
+   ░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░
+ 
+
+
+""")
+
+slowPrint(text:"A porta fechou logo atrás de você, e agora você está preso dentro da tumba.")
+
+slowPrint(text: "Está muito escuro. Você não enxerga um palmo à frente. Talvez você tenha algum item que possa iluminar o lugar.")
+
+slowPrint(text: "ABRIR INVENTÁRIO.")
+
+selectLighter()
+
+print()
+slowPrint(text: "Você dá passos furtivos e com cuidado, sempre olhando para todas as direções por precaução. Após uma longa caminhada, você se deparou com um piso elevado e dois caminhos para seguir.")
+
+secondChoice()
+
+func secondChoice() {
+    print("""
+    1 - Pisar em Cima
+    2 - Desviar
+""")
+    print()
+    
+    var choice = readLine()!
+    var number = Int(choice)!
+
+switch number{
+    
+case 1:
+    slowChoice (text:"É UMA ARMADILHA! Flechas estão tentanto te atingir! PENSE RÁPIDO!")
+    
+    print("""
+    1 - ESQUERDA!
+    2 - DIREITA!
+    """)
+
+    
+//    if (sleep: 5) {
+//        
+//    } else {
+        var dec = Int(readLine()!)
+        if (dec == 1) {
+            print("Você se depara")
+        } else {
+            print("Você encontra")
+        }
+//    }
+    break
+    
+case 2:
+    slowChoice(text:"Com muito cuidado para não pisar em cima, você desvia e segue em frente.")
+    
+    print("""
+    1 - Esquerda.
+    2 - Direita.
+    """)
+    
+    var dec = Int(readLine()!)
+    if (dec == 2) {
+        print("Você se depara")
+    } else {
+        print("Você encontra")
+    }
+    
+    break
+    
+default:
+    slowChoice(text: "meu querido voce andou em circulos e nao chegou a lugar nenhum. Tentar de novo.")
+    print()
+    secondChoice()
+    print()
+    break
+    }
+}
+
 
 
 
