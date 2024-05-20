@@ -4,7 +4,6 @@
 //
 //  Created by PATRICIA MILET MATIAS on 10/05/24.
 //
-
 import Foundation
 
 // Cores
@@ -58,166 +57,14 @@ extension String {
     
 }
 
-//Game's func
-
-//third choice
-func thirdChoice() {
-    print("""
-1 - Explorar o salão.
-2 - Ir até o baú.
-""")
-    print()
-    
-    var choice = readLine()!
-    var number = Int(choice)!
-    
-    switch number {
-    case 1:
-        secondRightExplore()
-        break
-        
-    case 2:
-        secondRightChest()
-        break
-        
-    default:
-        switchDefault()
-        thirdChoice()
-        break
-    }
-}
-
-//Função do inventário
 var inventoryList: [(qty: Int, item: String)] = []
-func inventory() -> String {
-    
-    print("Itens disponiveis")
-    for i in 0..<inventoryList.count {
-        print(i+1 , "- ", inventoryList[i].qty, "x ", inventoryList[i].item)
-    }
-    print()
-    print("0 - Fechar o Inventário")
-    print()
-    
-    let listPosition = readLine()
-    
-    if let confirmedPosition = listPosition, let number = Int(confirmedPosition) {
-        
-        if number == 0 {
-            return ""
-        } else if number - 1 < inventoryList.count {
-            return inventoryList[number-1].item
-        } else {
-            print("Esse item não existe.")
-            inventory()
-        }
-        
-    } else {
-        print("Esse item não existe.")
-        inventory()
-    }
-    
-    //    listPosition = Optional("3")
-    //    confirmedPosition = "3"
-    //    number = 3
-    
-    return ""
-}
-//Para adicionar item no inventário, utilizar inventoryList.append((Quantidade, "Nome do Item"))
+var alavanca = false
 
-//Função ESQUERDA e DIREITA da secondChoice
-func secondRight() {
-    slowChoice(text: "Você se depara com um salão enorme e algumas tochas iluminam o local. Tem um baú no centro recebendo uma luz de cima.")
-}
-func secondRightExplore() {
-    slowPrint(text: "Você anda cautelosamente pelo salão, enquanto encarava aos arredores do baú. Você percebe que o salão é redondo com um degrau de plataforma elevada no centro. Existem algumas meias-paredes e pilastras muito antigas e aos pedaços.")
-    slowPrint(text: "VOCÊ SE APROXIMA")
-    slowPrint(text: "Você vê uma sequência de sacórfagos enfileirados de maneira desorganizada, alguns de pé, outros apoiados em outros, alguns quebrados por inteiro e outros apenas trincados. O que chama a sua atenção é que, enquanto todos os outros estão muito danificados e você consegue enxergar o interior deles, existe um que está completamente fechado.")
-    slowPrint(text: "VOCÊ SE APROXIMA CADA VEZ MAIS...")
-    slowPrint(text: "Em passos muito lentos...")
-    slowPrint(text: "Quando você chega bem perto do sacorfágo para analisar, ELE ABRE BEM NA SUA FRENTE!!!!")
-    slowPrint(text: "Um esqueleto abriu a porta bem na sua frente, e ele está VIVO! O que você faz?")
-}
-func secondRightChest() {
-    slowPrint(text: "O baú reluz sob a luz que vem de cima. Os detalhes de ouro refletem tanto que seus olhos brilham de ganância. Você sente um desejo enorme de abrir.")
-    
-    print("1 - ABRIR O BAÚ")
-    print("2 - IGNORAR E EXPLORAR O SALÃO")
-    
-    var choice = readLine()!
-    var number = Int(choice)!
-    var answered : Int? = nil
-    func fourthChoice() {
-        switch number{
-            
-        case 1:
-            slowPrint(text: "Você hesita um pouco, mas não resiste!")
-            //colocar a foto de um baú
-            slowPrint(text: "Com muita dificuldade, você tenta abrir o baú na sua frente. Ele é muito grande e pesado. Você puxa a tampa e ela abre. Mas, o que é isso?")
-            slowPrint(text: "Tem um baú muito pequeno lá dentro e um papel do lado de fora, colado na tampa.")
-            // colocar um papel escrito a charada
-            break
-            
-        case 2:
-            secondRightExplore()
-            break
-            
-        default:
-            switchDefault()
-            break
-        }
-    }
-    
-}
-
-func secondFloor() {
-    slowPrint(text: "Você encontra escadas que o levam para o segundo andar.")
-}
-
-//Função texto de história é mostrado devagar
-func slowPrint(text: String) {
-    let separatedText = text.split(separator: " ")
-    setbuf(__stdoutp, nil) //To not bug the Console
-    for word in separatedText {
-        print(word, terminator: " ")
-        usleep(10000)
-    }
-    print(" ▼")
-    readLine()
-}
-
-//Função texto de escolha é mostrado devagar
-func slowChoice(text: String) {
-    let separatedText = text.split(separator: " ")
-    setbuf(__stdoutp, nil) //To not bug the Console
-    for word in separatedText {
-        print(word, terminator: " ")
-        usleep(10000)
-    }
-    print()
-    print()
-}
-
-//Função selecionar Isqueiro
-func selectLighter() {
-    var selectedItem = inventory()
-    
-    if selectedItem == "Isqueiro" {
-        print("Você acendeu o isqueiro e o corredor se iluminou na sua frente.")
-    } else {
-        print("Não sei onde esse item pode ser útil.. Escolha outro")
-        selectLighter()
-    }
-}
-
-func switchDefault() {
-    slowChoice(text: "Você andou em círculos e não chegou em lugar nenhum. Tente novamente.")
-    print()
-}
-
-inventoryList.append((1, "Isqueiro"))
-inventoryList.append((2, "Cenoura"))
 inventoryList.append((10, "Moedas de Ouro"))
+inventoryList.append((2, "Cenoura"))
+inventoryList.append((1, "Isqueiro"))
+
+//Game's func
 
 //Adicionar uma introdução animada
 
@@ -302,59 +149,10 @@ slowPrint(text: "A construção é monumental e quase que etérea, você não co
 
 slowPrint(text: "Você anda em volta e analisa as paredes, parece que não há portas. Mas deve haver um meio de entrar.")
 
-var alavanca = false
+//primeira escolha
 
 firstChoice()
-func firstChoice() {
-    print("""
-    1 - Vasculhar pela areia
-    2 - Tatear as paredes
-    3 - Olhar de perto
-    4 - Procurar no google
-""")
-    print()
-    
-    var choice = readLine()!
-    var number = Int(choice)!
-    
-    switch number{
-        
-    case 1:
-        slowChoice(text:"Você escava um pouco da areia ao redor e encontra algo enterrado. É uma alavanca quebrada. Talvez seja útil para alguma coisa.")
-        alavanca = true
-        firstChoice()
-        break
-        
-    case 2:
-        slowChoice(text:"QUENTE! Ficar o dia inteiro nesse sol escaldante deixou as paredes quase pegando fogo.")
-        firstChoice()
-        break
-        
-    case 3:
-        
-        if alavanca {
-            slowPrint(text: "Você força a vista e tenta identificar alguma coisa nos desenhos da parede. Tudo empoeirado. Você encontra um espaço que parece algum tipo de encaixe, talvez a alavanca sirva para isso. Você encaixa a alavanca e puxa para baixo.")
-            
-        } else {
-            slowChoice(text: "Você força a vista e tenta identificar alguma coisa nos desenhos da parede. Tudo empoeirado. Você encontra um espaço que parece algum tipo de encaixe, mas não parece ser útil por enquanto.")
-            firstChoice()
-        }
-        break
-        
-    case 4:
-        slowChoice(text: "Boa tentativa, mas não tem sinal de internet por aqui. Continua tentando")
-        print()
-        firstChoice()
-        print()
-        break
-        
-    default:
-        switchDefault()
-        firstChoice()
-        print()
-        break
-    }
-}
+
 
 print("""
 ▒▒▒▒▒▒▒▒▒█████████████████████████████████████████████████▒▒▒▒▒▒▒▒▒
@@ -422,6 +220,61 @@ slowPrint(text: "Você dá passos furtivos e com cuidado, sempre olhando para to
 
 secondChoice()
 
+secondFloor()
+
+func firstChoice() { // fora da Torre
+    
+    print("""
+    1 - Vasculhar pela areia
+    2 - Tatear as paredes
+    3 - Olhar de perto
+    4 - Procurar no google
+    """)
+    
+    print()
+    
+    var choice = readLine()!
+    var number = Int(choice)!
+    
+    switch number{
+        
+    case 1:
+        slowChoice(text:"Você escava um pouco da areia ao redor e encontra algo enterrado. É uma alavanca quebrada. Talvez seja útil para alguma coisa.")
+        alavanca = true
+        firstChoice()
+        break
+        
+    case 2:
+        slowChoice(text:"QUENTE! Ficar o dia inteiro nesse sol escaldante deixou as paredes quase pegando fogo.")
+        firstChoice()
+        break
+        
+    case 3:
+        
+        if alavanca {
+            slowPrint(text: "Você força a vista e tenta identificar alguma coisa nos desenhos da parede. Tudo empoeirado. Você encontra um espaço que parece algum tipo de encaixe, talvez a alavanca sirva para isso. Você encaixa a alavanca e puxa para baixo.")
+            
+        } else {
+            slowChoice(text: "Você força a vista e tenta identificar alguma coisa nos desenhos da parede. Tudo empoeirado. Você encontra um espaço que parece algum tipo de encaixe, mas não parece ser útil por enquanto.")
+            firstChoice()
+        }
+        break
+        
+    case 4:
+        slowChoice(text: "Boa tentativa, mas não tem sinal de internet por aqui. Continue tentando!")
+        print()
+        firstChoice()
+        print()
+        break
+        
+    default:
+        switchDefault()
+        firstChoice()
+        print()
+        break
+    }
+}
+
 func secondChoice() {
     print("""
     1 - Pisar em Cima
@@ -455,8 +308,8 @@ func secondChoice() {
                     print("Jogue novamente.")
                     exit(0)
                 }
-                
             }
+            
             if let answer = Int(readLine()!) {
                 
                 answered = answer
@@ -497,18 +350,288 @@ func secondChoice() {
     }
 }
 
-secondFloor()
+
+
+func thirdChoice() {
+    
+    print("""
+1 - Explorar o salão.
+2 - Ir até o baú.
+""")
+    
+    print()
+    
+    var choice = readLine()!
+    var number = Int(choice)!
+    
+    switch number {
+    case 1:
+        secondRightExplore()
+        break
+        
+    case 2:
+        fourthChoice()
+        break
+        
+    default:
+        switchDefault()
+        thirdChoice()
+        break
+    }
+}
+
+//Função do inventário
+
+
+func inventory() -> String {
+    
+    print("Itens disponiveis")
+    for i in 0..<inventoryList.count {
+        print(i+1 , "- ", inventoryList[i].qty, "x ", inventoryList[i].item)
+    }
+    print()
+    print("0 - Fechar o Inventário")
+    print()
+    
+    let listPosition = readLine()
+    
+    if let confirmedPosition = listPosition, let number = Int(confirmedPosition) {
+        
+        if number == 0 {
+            return ""
+        } else if number - 1 < inventoryList.count {
+            return inventoryList[number-1].item
+        } else {
+            print("Esse item não existe.")
+            inventory()
+        }
+        
+    } else {
+        print("Esse item não existe.")
+        inventory()
+    }
+    
+    //    listPosition = Optional("3")
+    //    confirmedPosition = "3"
+    //    number = 3
+    
+    return ""
+}
+//Para adicionar item no inventário, utilizar inventoryList.append((Quantidade, "Nome do Item"))
 
 
 
-//alavanca
-//3 cenoura
-//10 moedas
+//Função ESQUERDA e DIREITA da secondChoice
+func secondRight() {
+    
+    slowChoice(text: "Você se depara com um salão enorme e algumas tochas iluminam o local. Tem um baú no centro recebendo uma luz de cima.")
+    
+}
+func secondRightExplore() {
+    
+    slowPrint(text: "Você anda cautelosamente pelo salão, enquanto encarava aos arredores do baú. Você percebe que o salão é redondo com um degrau de plataforma elevada no centro. Existem algumas meias-paredes e pilastras muito antigas e aos pedaços.")
+    slowPrint(text: "VOCÊ SE APROXIMA")
+    slowPrint(text: "Você vê uma sequência de sacórfagos enfileirados de maneira desorganizada, alguns de pé, outros apoiados em outros, alguns quebrados por inteiro e outros apenas trincados. O que chama a sua atenção é que, enquanto todos os outros estão muito danificados e você consegue enxergar o interior deles, existe um que está completamente fechado.")
+    slowPrint(text: "VOCÊ SE APROXIMA CADA VEZ MAIS...")
+    slowPrint(text: "Em passos muito lentos...")
+    slowPrint(text: "Quando você chega bem perto do sacorfágo para analisar, ELE ABRE BEM NA SUA FRENTE!!!!")
+    slowPrint(text: "Um esqueleto abriu a porta bem na sua frente, e ele está VIVO! O que você faz?")
+    
+    print   ("""
+              1 - Matar Esqueleto
+              2 - Conversa com o Esqueleto
+              """)
+    
+    print()
+    
+    coinsRemained(escolha: Int(readLine()!)!)
+    
+}
+//inventoryList[1].count
+
+//let moedas = inventoryList[1].count
+
+
+func coinsRemained (escolha: Int) {
+    
+    let opc01: Int = escolha
+    let moedas = inventoryList[0].qty;
+    var choice3 = 0;
+    if (opc01 == 1){
+        
+        print("""
+            VOCÊ DÁ UM SOCO NO ESQUELETO E O PEGA DESPREVENIDO.
+            MAS ELE DEVELVE O GOLPE EM VOCÊ.
+        Você perdeu 2 de HP.
+        """)
+        
+    } else if (opc01 == 2) {
+        
+        print("""
+            E aí, meu chapa. Em que posso lhe ajudar?
+            Tenho vários itens para vender. Você tem $ \(moedas) moedas
+            para gastar como você quiser!
+        
+        ♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰
+        ♰   1. Cenoura                     $ 3.00      ♰
+        ♰   2. Espada                      $ 10.00     ♰
+        ♰   3. Armadura                    $ 5.00      ♰
+        ♰   4. Vela                        $ 1.00      ♰
+        ♰   0. Fechar loja                             ♰
+        ♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰
+        """)
+        
+        choice3 = Int(readLine()!)!
+        //coinsRemained()
+        
+    } else {
+        
+        print("Opçao inválida, tente novamente!")
+        
+    }
+    
+    let cenoura = 3
+    let espada = 10
+    let armadura = 5
+    let vela = 1
+    
+    switch choice3 {
+    
+    case 0:
+        return
+        
+    case 1:
+        if(moedas >= cenoura){
+            inventoryList[0].qty -= cenoura
+            print("Você comprou o produto CENOURA. Agora você dispõe de $\(inventoryList[0].qty) moedas")
+        }else{
+            print("Uhmmmm você não tem moedas suficientes 😢")
+        }
+        
+    case 2:
+        if(moedas >= espada){
+            inventoryList[0].qty -= espada
+            print("Você comprou o produto ESPADA. Agora você dispõe de $\(inventoryList[0].qty) moedas")
+        }else{
+            print("Você não tem moedas suficientes 😢")
+        }
+        
+    case 3:
+        if(moedas >= armadura){
+            inventoryList[0].qty -= armadura
+            print("Você comprou o produto ARMADURA. Agora você dispõe de $\(inventoryList[0].qty) moedas")
+        }else{
+            print("Você não tem moedas suficientes 😢")
+        }
+        
+    case 4:
+        
+        if(moedas >= vela) {
+            inventoryList[0].qty -= vela
+            
+            print("Você comprou o produto VELA. Agora você dispõe de $\(inventoryList[0].qty) moedas")
+        }else{
+            print("Você não tem moedas suficientes 😢")
+        }
+        
+    default:
+        print("Você procurou, procurou e procurou o produto que queria, mas não conseguiu encontrá-lo. Tente novamente.")
+        print()
+        coinsRemained(escolha: Int(readLine()!)!)
+        
+    }
+    
+    coinsRemained (escolha: escolha)
+}
+
+
+func fourthChoice() {
+    
+    slowPrint(text: "O baú reluz sob a luz que vem de cima. Os detalhes de ouro refletem tanto que seus olhos brilham de ganância. Você sente um desejo enorme de abrir.")
+    
+    print("1 - ABRIR O BAÚ!")
+    print("2 - Ignorar e explorar o salão")
+    
+    var choice = readLine()!
+    var number = Int(choice)!
+    var answered : Int? = nil
+    
+    switch number {
+        
+    case 1:
+        slowPrint(text: "Você hesita um pouco, mas não resiste!")
+        
+        //colocar a foto de um baú
+        
+        slowPrint(text: "Com muita dificuldade, você tenta abrir o baú na sua frente. Ele é muito grande e pesado. Você puxa a tampa e ela abre. Mas, o que é isso?")
+        slowPrint(text: "Tem um baú muito pequeno lá dentro e um papel do lado de fora, colado na tampa.")
+        
+        // colocar um papel escrito a charada
+        
+        break
+        
+    case 2:
+        secondRightExplore()
+        break
+        
+    default:
+        switchDefault()
+        break
+    }
+}
+
+func secondFloor() {
+    slowPrint(text: "Você encontra escadas que o levam para o segundo andar.")
+    
+}
+
+//Função texto de história é mostrado devagar
+func slowPrint(text: String) {
+    let separatedText = text.split(separator: " ")
+    setbuf(__stdoutp, nil) //To not bug the Console
+    for word in separatedText {
+        print(word, terminator: " ")
+        usleep(10000)
+    }
+    print(" ▼")
+    readLine()
+}
+
+//Função texto de escolha é mostrado devagar
+func slowChoice(text: String) {
+    let separatedText = text.split(separator: " ")
+    setbuf(__stdoutp, nil) //To not bug the Console
+    for word in separatedText {
+        print(word, terminator: " ")
+        usleep(10000)
+    }
+    print()
+    print()
+}
+
+//Função selecionar Isqueiro
+func selectLighter() {
+    var selectedItem = inventory()
+    
+    if selectedItem == "Isqueiro" {
+        print("Você acendeu o isqueiro e o corredor se iluminou na sua frente.")
+    } else {
+        print("Não sei onde esse item pode ser útil.. Escolha outro")
+        selectLighter()
+    }
+}
+
+func switchDefault() {
+    slowChoice(text: "Você andou em círculos e não chegou em lugar nenhum. Tente novamente.")
+    print()
+}
+
+
+
+//alavanca xx
+//3 cenoura xx
+//10 moedas xx
 //vela
 //armadura
 //espada
 //cartao de identade
-
-
-
-
