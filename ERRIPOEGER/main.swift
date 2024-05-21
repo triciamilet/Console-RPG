@@ -28,7 +28,9 @@ func buscarIndice (item: String) -> Int? {
 
 //Adicionar uma introdução animada
 
-
+print()
+print("                                                                          ".bgRed())
+print()
 
 slowPrint(text: "Muitos anos atrás, a desigualdade prevaleceu no mundo de Wald e a população foi dividida entre os mais ricos e o Resto. Agora, a única forma de sobrevivência é um paradoxo onde é necessário arriscar a sua própria vida todos os dias. Os mais ricos e poderosos da sociedade estão sempre sedentos pelo entretenimento sombrio de dificultar a vida dos outros e têm fortunas suficientes para pagar valores exorbitantes para contratá-los para fazerem o que eles desejam, que eles próprios não tem coragem de enfrentar.")
 
@@ -107,7 +109,7 @@ print("""
     
 """)
 
-slowPrint(text: "A construção é monumental e quase que etérea, você não consegue imaginar como que isso tudo poderia teer sido construído por seres vivos mortais. Você olha para cima para ver a imensidão e o prédio some em meio às nuvens.")
+slowPrint(text: "A construção é monumental e quase que etérea, você não consegue imaginar como que isso tudo poderia ter sido construído por seres vivos mortais. Você olha para cima para ver a imensidão e o prédio some em meio às nuvens.")
 
 slowPrint(text: "Você anda em volta e analisa as paredes, parece que não há portas. Mas deve haver um meio de entrar.")
 
@@ -182,4 +184,3 @@ slowPrint(text: "Você dá passos furtivos e com cuidado, sempre olhando para to
 secondChoice()
 secondFloor()
 
-inventory()

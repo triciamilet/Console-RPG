@@ -9,6 +9,9 @@ import Foundation
 
 //Função texto de história é mostrado devagar
 func slowPrint(text: String) {
+    
+    print()
+    
     let separatedText = text.split(separator: " ")
     setbuf(__stdoutp, nil) //To not bug the Console
     for word in separatedText {
@@ -21,6 +24,9 @@ func slowPrint(text: String) {
 
 //Função texto de escolha é mostrado devagar
 func slowChoice(text: String) {
+    
+    print()
+    
     let separatedText = text.split(separator: " ")
     setbuf(__stdoutp, nil) //To not bug the Console
     for word in separatedText {
