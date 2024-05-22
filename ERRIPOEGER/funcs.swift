@@ -451,8 +451,31 @@ func returnToChest() {
 
     """)
     
-    slowChoice(text: "Agora enxergando um pouco melhor, você consegue identificar o caminho a seguir. Ao final do corredor você encontra um papel na parede atrás de um barril. O que você faz?")
-    barrel()
+    
+    let choice = readLine()
+    let number = Int(choice!)
+    
+    switch number {
+    case 2:
+        secondRightExplore()
+        returnToChest()
+        break
+        
+    case 1:
+        fourthChoice()
+        break
+        
+    case nil:
+        switchDefault()
+        thirdChoice()
+        break
+        
+    default:
+        switchDefault()
+        thirdChoice()
+        break
+    }
+    
 }
 
 
