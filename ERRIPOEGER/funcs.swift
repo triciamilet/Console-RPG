@@ -9,17 +9,32 @@ import Foundation
 
 //Função selecionar Isqueiro
 func selectLighter() {
-    var selectedItem = inventory()
     
-    if selectedItem == "Isqueiro" {
-        print("Você acendeu o isqueiro e o corredor se iluminou na sua frente.")
-    } else {
-        print("Não sei onde esse item pode ser útil.. Escolha outro")
-        selectLighter()
+    if let selectedItem = inventory() {
+        if selectedItem == "Isqueiro" {
+            print("Você acendeu o isqueiro e o corredor se iluminou na sua frente.")
+        } else {
+            print("Não sei onde esse item pode ser útil.. Escolha outro")
+            selectLighter()
+        }
     }
+   
 }
 
+func selectCandle() {
 
+    if let selectedItem = inventory() {
+        if selectedItem == "Vela" {
+            print("Você acendeu a vela e o corredor se iluminou na sua frente.")
+            slowChoice(text: "Agora enxergando um pouco melhor, você consegue identificar o caminho a seguir. Ao final do corredor você encontra um papel na parede atrás de um barril. O que você faz?")
+            barrel()
+        } else {
+            print("Não sei onde esse item pode ser útil.. Escolha outro")
+            selectCandle()
+        } //if selecteditem for FECHAR INVENTARIO, voltar para o corredor de portas.
+    }
+
+}
 
 func secondChoice() {
     print("""
@@ -28,8 +43,8 @@ func secondChoice() {
 """)
     print()
     
-    var choice = readLine()!
-    var number = Int(choice)!
+    let choice = readLine()!
+    let number = Int(choice)!
     var answered : Int? = nil
     switch number{
         
@@ -70,7 +85,7 @@ func secondChoice() {
         break
         
     case 2:
-        slowChoice(text:"Com muito cuidado para não pisar em cima, você desvia e segue em frente.")
+        slowChoice(text: "Com muito cuidado para não pisar em cima, você desvia e segue em frente.")
         
         print("""
     1 - Esquerda.
@@ -96,12 +111,6 @@ func secondChoice() {
     }
 }
 
-
-
-func secondFloor() {
-    slowPrint(text: "Você encontra escadas que o levam para o segundo andar.")
-}
-
 func firstChoice() {
     print("""
     1 - Vasculhar pela areia
@@ -111,8 +120,8 @@ func firstChoice() {
 """)
     print()
     
-    var choice = readLine()!
-    var number = Int(choice)!
+    let choice = readLine()
+    let number = Int(choice!)
     
     switch number{
         
@@ -144,6 +153,12 @@ func firstChoice() {
         firstChoice()
         print()
         break
+    
+    case nil:
+        switchDefault()
+        firstChoice()
+        print()
+        break
         
     default:
         switchDefault()
@@ -158,7 +173,7 @@ func firstChoice() {
 //third choice
 func thirdChoice() {
     
-    slowPrint(text: "Você se depara com um salão enorme e algumas tochas iluminam o local. Tem um baú no centro recebendo uma luz de cima")
+    slowChoice(text: "Você se depara com um salão enorme e algumas tochas iluminam o local. Tem um baú no centro recebendo uma luz de cima")
     
     print("""
 1 - Explorar o salão.
@@ -166,8 +181,8 @@ func thirdChoice() {
 """)
     print()
     
-    var choice = readLine()!
-    var number = Int(choice)!
+    var choice = readLine()
+    var number = Int(choice!)
     
     switch number {
     case 1:
@@ -177,6 +192,11 @@ func thirdChoice() {
         
     case 2:
         fourthChoice()
+        break
+        
+    case nil:
+        switchDefault()
+        thirdChoice()
         break
         
     default:
@@ -189,7 +209,7 @@ func thirdChoice() {
 
 //Função do inventário
 
-func inventory() -> String {
+func inventory() -> String? {
     
     print("Itens disponiveis")
     for i in 0..<inventoryList.count {
@@ -204,24 +224,24 @@ func inventory() -> String {
     if let confirmedPosition = listPosition, let number = Int(confirmedPosition) {
         
         if number == 0 {
-            return ""
+            return nil;
         } else if number - 1 < inventoryList.count {
             return inventoryList[number-1].item
         } else {
             print("Esse item não existe.")
-            inventory()
+            return inventory()
         }
         
     } else {
         print("Esse item não existe.")
-        inventory()
+        return inventory()
     }
     
     //    listPosition = Optional("3")
     //    confirmedPosition = "3"
     //    number = 3
     
-    return ""
+  
 }
 //Para adicionar item no inventário, utilizar inventoryList.append((Quantidade, "Nome do Item"))
 
@@ -327,8 +347,10 @@ func coinsRemained (escolha: Int) {
             print("Você comprou o produto ESPADA. Agora você dispõe de $\(inventoryList[0].qty) moedas")
             if let posicaoItem = buscarIndice(item: "Espada") {
                 inventoryList[posicaoItem].qty += 1
+                sword = true
             } else {
                 inventoryList.append((1, "Espada"))
+                sword = true
             }
         }else{
             print("Você não tem moedas suficientes 😢")
@@ -376,8 +398,8 @@ func coinsRemained (escolha: Int) {
         print("2 - Ignorar e explorar o salão")
         print("3 - Voltar atrás e seguir adiante")
         
-        var choice = readLine()!
-        var number = Int(choice)!
+        var choice = readLine()
+        var number = Int(choice!)
         var answered : Int? = nil
         
         switch number{
@@ -389,7 +411,7 @@ func coinsRemained (escolha: Int) {
             slowPrint(text: "Tem um baú muito pequeno lá dentro e um papel do lado de fora, colado na tampa.")
             // colocar um papel escrito a charada
             
-            charada()
+            charadaChest()
             
             break
             
@@ -402,8 +424,14 @@ func coinsRemained (escolha: Int) {
             secondFloor()
             break
             
+        case nil:
+            switchDefault()
+            fourthChoice()
+            break
+            
         default:
             switchDefault()
+            fourthChoice()
             break
         }
     }
@@ -423,26 +451,12 @@ func returnToChest() {
 
     """)
     
-    var choice = readLine()!
-    var number = Int(choice)!
-    var answered : Int? = nil
-    
-    switch number {
-    case 1:
-        fourthChoice()
-        break
-        
-    case 2:
-        break
-        
-    default:
-        switchDefault()
-    }
-
+    slowChoice(text: "Agora enxergando um pouco melhor, você consegue identificar o caminho a seguir. Ao final do corredor você encontra um papel na parede atrás de um barril. O que você faz?")
+    barrel()
 }
 
 
-func charada() {
+func charadaChest() {
 let resp1 = "VENTO"
 let resp2 = "MAPA"
 let resp3 = "VELA"
@@ -488,14 +502,14 @@ let sair = "SAIR"
         
         let res = readLine()
         if(res == resp1) {
-            charadaCorrect()
+            charadaCorrectChest()
         } else if (res == sair){
             
             thirdChoice()
             
         } else {
             charadaIncorrect()
-            charada()
+            charadaChest()
         }
     case 2:
         charadaBorderTop()
@@ -504,14 +518,14 @@ let sair = "SAIR"
         
         let res2 = readLine()
         if(res2 == resp2){
-            charadaCorrect()
+            charadaCorrectChest()
         } else if (res2 == sair){
             
             thirdChoice()
             
         } else {
             charadaIncorrect()
-            charada()
+            charadaChest()
         }
     case 3:
         charadaBorderTop()
@@ -520,14 +534,14 @@ let sair = "SAIR"
         
         let res3 = readLine()
         if(res3 == resp3){
-            charadaCorrect()
+            charadaCorrectChest()
         } else if (res3 == sair){
             
             thirdChoice()
             
         } else {
             charadaIncorrect()
-            charada()
+            charadaChest()
         }
     case 4:
         charadaBorderTop()
@@ -536,14 +550,14 @@ let sair = "SAIR"
         
         let res4 = readLine()
         if(res4 == resp4){
-            charadaCorrect()
+            charadaCorrectChest()
         } else if (res4 == sair){
             
             thirdChoice()
             
         } else {
             charadaIncorrect()
-            charada()
+            charadaChest()
         }
     case 5:
         charadaBorderTop()
@@ -552,14 +566,14 @@ let sair = "SAIR"
         
         let res5 = readLine()
         if(res5 == resp5){
-            charadaCorrect()
+            charadaCorrectChest()
         } else if (res5 == sair){
             
             thirdChoice()
             
         } else {
             charadaIncorrect()
-            charada()
+            charadaChest()
         }
     case 6:
         charadaBorderTop()
@@ -568,14 +582,14 @@ let sair = "SAIR"
         
         let res6 = readLine()
         if(res6 == resp6){
-            charadaCorrect()
+            charadaCorrectChest()
         } else if (res6 == sair){
             
             thirdChoice()
             
         } else {
             charadaIncorrect()
-            charada()
+            charadaChest()
         }
     case 7:
         charadaBorderTop()
@@ -584,14 +598,14 @@ let sair = "SAIR"
         
         let res7 = readLine()
         if(res7 == resp7){
-            charadaCorrect()
+            charadaCorrectChest()
         } else if (res7 == sair){
             
             thirdChoice()
             
         } else {
             charadaIncorrect()
-            charada()
+            charadaChest()
         }
     case 8:
         charadaBorderTop()
@@ -600,14 +614,14 @@ let sair = "SAIR"
         
         let res8 = readLine()
         if(res8 == resp8){
-            charadaCorrect()
+            charadaCorrectChest()
         } else if (res8 == sair){
             
             thirdChoice()
             
         } else {
             charadaIncorrect()
-            charada()
+            charadaChest()
         }
     case 9:
         charadaBorderTop()
@@ -616,14 +630,14 @@ let sair = "SAIR"
         
         let res9 = readLine()
         if(res9 == resp9){
-            charadaCorrect()
+            charadaCorrectChest()
         } else if (res9 == sair){
             
             thirdChoice()
             
         } else {
             charadaIncorrect()
-            charada()
+            charadaChest()
         }
     case 10:
         charadaBorderTop()
@@ -632,14 +646,14 @@ let sair = "SAIR"
         
         let res10 = readLine()
         if(res10 == resp10){
-            charadaCorrect()
+            charadaCorrectChest()
         } else if (res10 == sair){
             
             thirdChoice()
             
         } else {
             charadaIncorrect()
-            charada()
+            charadaChest()
         }
     default:
         print("retorna")
@@ -676,25 +690,257 @@ func charadaIncorrect() {
     print("   |                                                                                             |".red())
 }
 
-func charadaCorrect() {
+func charadaCorrectChest() {
     
     print("   |                                      Resposta Correta!!                                     |".green())
     print("   |▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁|".green())
     
-    
-    print("Você recebeu o item CENOURA. Agora você dispõe de $\(inventoryList[2].qty) cenouras")
-    if let posicaoItem = buscarIndice(item: "Cenoura") {
-        inventoryList[posicaoItem].qty += 1
-    } else {
-        inventoryList.append((1, "Cenoura"))
-    }
-    print("Você recebeu o item MOEDAS DE OURO. Agora você dispõe de $\(inventoryList[0].qty) moedas")
-    if let posicaoItem = buscarIndice(item: "Moedas de Ouro") {
-        inventoryList[posicaoItem].qty += 5
-    } else {
-        inventoryList.append((5, "Moedas de Ouro"))
-    }
-    
+    charadaChestRewards()
     secondRightExplore()
     
 }
+
+func charadaChestRewards() {
+    
+    if let posicaoItem = buscarIndice(item: "Cenoura") {
+        inventoryList[posicaoItem].qty += 1
+        print("Você recebeu o item CENOURA. Agora você dispõe de $\(inventoryList[2].qty) cenouras")
+    } else {
+        inventoryList.append((1, "Cenoura"))
+        print("Você recebeu o item CENOURA. Agora você dispõe de $\(inventoryList[2].qty) cenouras")
+    }
+    if let posicaoItem = buscarIndice(item: "Moedas de Ouro") {
+        inventoryList[posicaoItem].qty += 5
+        print("Você recebeu o item MOEDAS DE OURO. Agora você dispõe de $\(inventoryList[0].qty) moedas")
+    } else {
+        inventoryList.append((5, "Moedas de Ouro"))
+        print("Você recebeu o item MOEDAS DE OURO. Agora você dispõe de $\(inventoryList[0].qty) moedas")
+    }
+    
+}
+
+func charadaBarrel() {
+let resp1 = "VENTO"
+let resp2 = "MAPA"
+let resp3 = "VELA"
+let resp4 = "CHUVA"
+let resp5 = "RIO"
+let resp6 = "TEMPERATURA"
+let resp7 = "FUTURO"
+let resp8 = "GUARDA-CHUVA"
+let resp9 = "MAR"
+let resp10 = "FOGO"
+let sair = "SAIR"
+
+
+    let listaCharada: [Int : String] = [
+        1 : "   |                             Passa diante do sol e não faz sombra?                           |",
+        
+        2 : "   |                           Tem cidades, lojas, ruas e nenhuma pessoa?                        |",
+        
+        3 : "   |                           É alta quando é nova e baixa quando usada?                        |",
+        
+        4 : "   |                                   Cai em pé e corre deitada?                                |",
+        
+        5 : "   |                         Não tem pés e corre, e tem leito e não dorme?                       |",
+        
+        6 : "   |                               Sobe e desce, mas nunca se move?                              |",
+        
+        7 : "   |                       Está sempre a sua frente, mas você nunca pode ver?                    |",
+        
+        8 : "   |              Guarda tudo quando está aberto, não guarda nada quando está fechado?           |",
+        
+        9 : "   |       Eu sou aquele que nunca descansa e vai e vem sem cessar. Nunca consigo me secar.      |",
+        
+        10 : "   |              Não estou vivo, mas cresço, não tenho pulmões, mas preciso de ar.              |",
+    ]
+    
+    let numeroAleatorio = Int.random(in: 1...10)
+    
+    switch numeroAleatorio {
+    case 1:
+        charadaBorderTop()
+        print(listaCharada[numeroAleatorio]!)
+        charadaBorderBottom()
+        
+        let res = readLine()
+        if(res == resp1) {
+            charadaCorrectBarrel()
+        } else if (res == sair){
+            
+            thirdChoice()
+            
+        } else {
+            charadaIncorrect()
+            charadaBarrel()
+        }
+    case 2:
+        charadaBorderTop()
+        print(listaCharada[numeroAleatorio]!)
+        charadaBorderBottom()
+        
+        let res2 = readLine()
+        if(res2 == resp2){
+            charadaCorrectBarrel()
+        } else if (res2 == sair){
+            
+            thirdChoice()
+            
+        } else {
+            charadaIncorrect()
+            charadaBarrel()
+        }
+    case 3:
+        charadaBorderTop()
+        print(listaCharada[numeroAleatorio]!)
+        charadaBorderBottom()
+        
+        let res3 = readLine()
+        if(res3 == resp3){
+            charadaCorrectBarrel()
+        } else if (res3 == sair){
+            
+            thirdChoice()
+            
+        } else {
+            charadaIncorrect()
+            charadaBarrel()
+        }
+    case 4:
+        charadaBorderTop()
+        print(listaCharada[numeroAleatorio]!)
+        charadaBorderBottom()
+        
+        let res4 = readLine()
+        if(res4 == resp4){
+            charadaCorrectBarrel()
+        } else if (res4 == sair){
+            
+            thirdChoice()
+            
+        } else {
+            charadaIncorrect()
+            charadaBarrel()
+        }
+    case 5:
+        charadaBorderTop()
+        print(listaCharada[numeroAleatorio]!)
+        charadaBorderBottom()
+        
+        let res5 = readLine()
+        if(res5 == resp5){
+            charadaCorrectBarrel()
+        } else if (res5 == sair){
+            
+            thirdChoice()
+            
+        } else {
+            charadaIncorrect()
+            charadaBarrel()
+        }
+    case 6:
+        charadaBorderTop()
+        print(listaCharada[numeroAleatorio]!)
+        charadaBorderBottom()
+        
+        let res6 = readLine()
+        if(res6 == resp6){
+            charadaCorrectBarrel()
+        } else if (res6 == sair){
+            
+            thirdChoice()
+            
+        } else {
+            charadaIncorrect()
+            charadaBarrel()
+        }
+    case 7:
+        charadaBorderTop()
+        print(listaCharada[numeroAleatorio]!)
+        charadaBorderBottom()
+        
+        let res7 = readLine()
+        if(res7 == resp7){
+            charadaCorrectBarrel()
+        } else if (res7 == sair){
+            
+            thirdChoice()
+            
+        } else {
+            charadaIncorrect()
+            charadaBarrel()
+        }
+    case 8:
+        charadaBorderTop()
+        print(listaCharada[numeroAleatorio]!)
+        charadaBorderBottom()
+        
+        let res8 = readLine()
+        if(res8 == resp8){
+            charadaCorrectBarrel()
+        } else if (res8 == sair){
+            
+            thirdChoice()
+            
+        } else {
+            charadaIncorrect()
+            charadaBarrel()
+        }
+    case 9:
+        charadaBorderTop()
+        print(listaCharada[numeroAleatorio]!)
+        charadaBorderBottom()
+        
+        let res9 = readLine()
+        if(res9 == resp9){
+            charadaCorrectBarrel()
+        } else if (res9 == sair){
+            
+            thirdChoice()
+            
+        } else {
+            charadaIncorrect()
+            charadaBarrel()
+        }
+    case 10:
+        charadaBorderTop()
+        print(listaCharada[numeroAleatorio]!)
+        charadaBorderBottom()
+        
+        let res10 = readLine()
+        if(res10 == resp10){
+            charadaCorrectBarrel()
+        } else if (res10 == sair){
+            
+            thirdChoice()
+            
+        } else {
+            charadaIncorrect()
+            charadaBarrel()
+        }
+    default:
+        print("retorna")
+    }
+}
+
+func charadaCorrectBarrel() {
+    
+    print("   |                                      Resposta Correta!!                                     |".green())
+    print("   |▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁|".green())
+    
+    charadaBarrelRewards()
+    secondRightExplore()
+    
+}
+
+func charadaBarrelRewards() {
+    
+    if let posicaoItem = buscarIndice(item: "Escudo") {
+        inventoryList[posicaoItem].qty += 1
+    } else {
+        inventoryList.append((1, "Escudo"))
+    }
+    
+    print("Você recebeu o item ESCUDO. Agora você dispõe de \(inventoryList[buscarIndice(item: "Escudo")!].qty) escudo")
+}
+

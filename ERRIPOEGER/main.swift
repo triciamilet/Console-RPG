@@ -9,6 +9,7 @@ import Foundation
 
 var inventoryList: [(qty: Int, item: String)] = []
 var alavanca = false
+var sword = false
 inventoryList.append((10, "Moedas de Ouro"))
 inventoryList.append((1, "Isqueiro"))
 inventoryList.append((2, "Cenoura"))
@@ -22,6 +23,24 @@ func buscarIndice (item: String) -> Int? {
     }
     
     return nil;
+    
+}
+
+func removerDoInventario(item: String, qty: Int) {
+    
+    if let buscaItem = buscarIndice(item: item) {
+        
+        if inventoryList[buscaItem].qty > qty {
+            inventoryList[buscaItem].qty -= qty
+            
+        } else {
+            inventoryList.remove(at: buscaItem)
+        }
+        
+    } else {
+        return
+    }
+    
     
 }
 
@@ -112,8 +131,6 @@ print("""
 slowPrint(text: "A construção é monumental e quase que etérea, você não consegue imaginar como que isso tudo poderia ter sido construído por seres vivos mortais. Você olha para cima para ver a imensidão e o prédio some em meio às nuvens.")
 
 slowPrint(text: "Você anda em volta e analisa as paredes, parece que não há portas. Mas deve haver um meio de entrar.")
-
-
 
 firstChoice()
 

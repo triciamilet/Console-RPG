@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4948BDFC2BEE9BD100A88DA9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4948BDFB2BEE9BD100A88DA9 /* main.swift */; };
+		497DDCA22BFE6FA300A30BC8 /* thirdFloor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497DDCA12BFE6FA300A30BC8 /* thirdFloor.swift */; };
 		49FD894D2BFBE0E7006104CA /* secondFloor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD894C2BFBE0E7006104CA /* secondFloor.swift */; };
 		49FD894F2BFBE0F2006104CA /* funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD894E2BFBE0F2006104CA /* funcs.swift */; };
 		49FD89512BFBE0FD006104CA /* funcsPrints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD89502BFBE0FD006104CA /* funcsPrints.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		4948BDF82BEE9BD100A88DA9 /* ERRIPOEGER */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ERRIPOEGER; sourceTree = BUILT_PRODUCTS_DIR; };
 		4948BDFB2BEE9BD100A88DA9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		497DDCA12BFE6FA300A30BC8 /* thirdFloor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdFloor.swift; sourceTree = "<group>"; };
 		49FD894C2BFBE0E7006104CA /* secondFloor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondFloor.swift; sourceTree = "<group>"; };
 		49FD894E2BFBE0F2006104CA /* funcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funcs.swift; sourceTree = "<group>"; };
 		49FD89502BFBE0FD006104CA /* funcsPrints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funcsPrints.swift; sourceTree = "<group>"; };
@@ -65,10 +67,11 @@
 		4948BDFA2BEE9BD100A88DA9 /* ERRIPOEGER */ = {
 			isa = PBXGroup;
 			children = (
-				4948BDFB2BEE9BD100A88DA9 /* main.swift */,
 				49FD894E2BFBE0F2006104CA /* funcs.swift */,
 				49FD89502BFBE0FD006104CA /* funcsPrints.swift */,
+				4948BDFB2BEE9BD100A88DA9 /* main.swift */,
 				49FD894C2BFBE0E7006104CA /* secondFloor.swift */,
+				497DDCA12BFE6FA300A30BC8 /* thirdFloor.swift */,
 				49FD89522BFBE108006104CA /* colors.swift */,
 			);
 			path = ERRIPOEGER;
@@ -136,6 +139,7 @@
 				49FD89532BFBE108006104CA /* colors.swift in Sources */,
 				49FD894F2BFBE0F2006104CA /* funcs.swift in Sources */,
 				4948BDFC2BEE9BD100A88DA9 /* main.swift in Sources */,
+				497DDCA22BFE6FA300A30BC8 /* thirdFloor.swift in Sources */,
 				49FD89512BFBE0FD006104CA /* funcsPrints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
