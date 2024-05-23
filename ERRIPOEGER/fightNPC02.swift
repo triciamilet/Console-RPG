@@ -7,12 +7,12 @@
 
 import Foundation
 
-// Criando os NPCs
-var npcEsqueleto = Combate(name: "ESQUELETO 💀", hp: 50)
-var npcCoelho = Combate(name: "VOCÊ 🐇 ", hp: 50)
+
+var esqueleto = Combate2(name: "ESQUELETO 💀", hp: 50)
+var coelho2 = Combate2(name: "VOCÊ 🐇 ", hp: 50)
 
 // Estrutura para representar um personagem
-struct Combate {
+struct Combate2 {
     var name: String
     var hp: Int
 
@@ -21,7 +21,7 @@ struct Combate {
         print("\(name): HP \(hp)")
     }
     
-    //Metodo para imprimir a imagem do coelho
+    //Metodo para imprimir a imagem do player2
     func rabbit2(){
         print("""
                    
@@ -45,7 +45,7 @@ struct Combate {
         """)
     }
     
-    func esqueleto(){
+    func player1(){
         print("""
                                   .7
                                 .'╱
@@ -85,38 +85,38 @@ struct Combate {
 }
 
 // Função para simular um combate entre dois personagens
-func combat2(esqueleto: inout Combate, coelho: inout Combate) {
-    print("Iniciando o combate entre \(esqueleto.name) e \(coelho.name)!")
+func combat2(player1: inout Combate2, player2: inout Combate2) {
+    print("Iniciando o combate entre \(player1.name) e \(player2.name)!")
     print("-----------------------------------------")
     
     // Loop de combate até que um dos personagens fique sem HP
-    while esqueleto.hp > 0 && coelho.hp > 0 {
+    while player1.hp > 0 && player2.hp > 0 {
         // Simulando ataques
         let damage1 = Int.random(in: 1...7)
         let damage2 = Int.random(in: 1...7)
         
         // Aplicando danos
-        coelho.hp -= damage1
-        esqueleto.hp -= damage2
+        player2.hp -= damage1
+        player1.hp -= damage2
         
         
         // Imprimindo o estado atual dos personagens
-        print("\(esqueleto.name) ataca \(coelho.name) e causa \(damage1) de dano.")
-        coelho.rabbit2()
-        coelho.printStatus()
+        print("\(player1.name) ataca \(player2.name) e causa \(damage1) de dano.")
+        player2.rabbit2()
+        player2.printStatus()
         
         readLine()
         
         print()
         
-        print("\(coelho.name) ataca \(esqueleto.name) e causa \(damage2) de dano.")
-        esqueleto.esqueleto()
-        esqueleto.printStatus()
+        print("\(player2.name) ataca \(player1.name) e causa \(damage2) de dano.")
+        player1.player1()
+        player1.printStatus()
         print("-----------------------------------------")
     }
     
     // Determinando o vencedor
-    if esqueleto.hp <= 0 {
+    if player1.hp <= 0 {
         print("""
                                    ,--.
                                   {    }
@@ -145,7 +145,7 @@ func combat2(esqueleto: inout Combate, coelho: inout Combate) {
                      ^^╲..___,.--`
         """)
         
-        slowPrint(text: "Parabens \(coelho.name) venceu o combate!")
+        slowPrint(text: "Parabens \(player2.name) venceu o combate!")
         slowPrint(text: "Você é digno de receber a joia valiosa 💎 que estava dentro do crânio do monstro. Poucos guerreiros chegaram até aqui. Espero contar com você em uma próxima missão. ATE JÁ!!!!")
         print("""
 
@@ -172,6 +172,6 @@ func combat2(esqueleto: inout Combate, coelho: inout Combate) {
 """)
         
     } else {
-        print("\(esqueleto.name) venceu o combate!")
+        print("\(player1.name) venceu o combate!")
     }
 }

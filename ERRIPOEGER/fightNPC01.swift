@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import Foundation
 
 // Criando os NPCs
-var npc1 = Character(name: "ARANHA 🕷️", hp: 20)
-var npc2 = Character(name: "VOCÊ 🐇 ", hp: 20)
+var aranha = Combate1(name: "ARANHA 🕷️", hp: 20)
+var coelho1 = Combate1(name: "VOCÊ 🐇 ", hp: 20)
 
 // Estrutura para representar um personagem
-struct Character {
+struct Combate1 {
     var name: String
     var hp: Int
 
@@ -21,7 +22,7 @@ struct Character {
         print("\(name): HP \(hp)")
     }
     
-    //Metodo para imprimir a imagem do coelho
+    //Metodo para imprimir a imagem do player2
     func rabbit(){
         print("""
                    
@@ -51,37 +52,29 @@ struct Character {
                   $$                 $$
                  $$                   $$
                 $$                     $$
-                $$                     $$
-                $$                     $$
                  $$                   $$
              $$  $$                   $$  $$
             $$   $$                   $$   $$
-           $$     $$                 $$     $$
-           $       $$$             $$$       $
-           $$       $$$           $$$       $$
            $$$       $$$  $$$$$  $$$       $$$
             $$$$$$    $$$$$$$$$$$$$   $$$$$$$
-                 $$$$$$$$$$$$$$$$$$$$$$
-            $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                    $$$$$$$$$$$$$$$$
            $$$ $$$$$$$$$$$$$$$$$$$$$$$$$$ $$$
-          $$$         $$$$$$$$$$$$         $$$
+          $$$          $$$$$$$$$$          $$$
          $$         $$$$$$$$$$$$$$$$$        $$
          $$     $$$$$$$$$$$$$$$$$$$$$$$$     $$
-        $$     $$$  $$$$$$$$$$$$$$$$  $$$     $$
-         $$    $$   $$$$$$$  $$$$$$$   $$    $$
-          $    $$   $$$$$$$  $$$$$$$   $$    $
-           $   $$   $$$$$$$$$$$$$$$$   $$   $
-            $  $$    $$$$$$$$$$$$$$    $$  $
-               $$     $$$$$$$$$$$$     $$
-               $$       $$$$$$$$       $$
+        $$     $$$    $$$$$$$$$$$$    $$$     $$
+         $$    $$     $$$$$  $$$$$     $$    $$
+           $   $$       $$$$$$$$       $$   $
+            $  $$                      $$  $
+               $$                      $$
                 $$                    $$
-
+                  $                   $
         """)
     }
 }
 
 // Função para simular um combate entre dois personagens
-func combat(player1: inout Character, player2: inout Character) {
+func combat1(player1: inout Combate1 , player2: inout Combate1) {
     print("Iniciando o combate entre \(player1.name) e \(player2.name)!")
     print("-----------------------------------------")
     
