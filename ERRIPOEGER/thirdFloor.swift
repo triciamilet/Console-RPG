@@ -8,12 +8,7 @@
 import Foundation
 
 func thirdFloor(){
-    slowPrint(text: """
-    Muito bem! Encontra-se no terceiro andar, está próximo a cumpri seu objetivo, os siguintes passos terám que ser decididos com cautela.
-
-""")
-    slowPrint(text: "BIIIIIIIIP 🚨. A porta abriu!  Finalmente, você chegou no último andar! Só tem um problema... O salão tem um longo corredor e está cheio de lasers de segurança.")
-    
+    slowPrint(text: "Você se direciona para os primeiros degraus e sobe às pressas. Agora você está no terceiro e último andar, cada vez mais próximo de cumprir o seu objetivo.")
     print("""
                                      {} {}
                              !  !  ! II II !  !  !
@@ -39,35 +34,35 @@ func thirdFloor(){
     
     """)
     
+    slowPrint(text: "BIIIIIIIIP 🚨. Uma porta enorme se abre na sua frente! Só tem um problema... O salão tem um longo corredor e está cheio de lasers de segurança.")
+    
     print("""
-          1 - Ir con cuidado
+          1 - Ir com cuidado
           2 - Enfrentar
           """)
     print()
     
-    
     var porta3 = Int(readLine()!)!
     if(porta3 == 1){
         slowPrint(text: """
-    Você anda com bastante cuidado para não ativar nenhum dispositivo de segurança, e de passo em passo você se aproxima cada vez mais da joia. Com bastante atenção você estica a mão para puxar a joia e ..............
+        Você anda com bastante cuidado para não ativar nenhum dispositivo de segurança e, de passo em passo, você se aproxima cada vez mais da joia. Com bastante atenção você estica a mão para puxar a joia e...
 """)
         slowPrint(text: """
-        Eh falsa!!!!!!!!!! ELA SE DESFAZ NA SUA MÃO. Um barulho ensurdecedor ecoa pelo salão e você encontra um rugido. Um esqueleto ENORME atrás de você!
+        É FALSA! A jóia se desfaz na sua mão e um barulho ensurdecedor ecoa pelo salão e você encontra um rugido. Tem um esqueleto ENORME atrás de você!
 """)
         monsterBig()
     }else if(porta3 == 2){
         slowPrint(text: """
-    São lasers demais e talvez o perigo iminente seja devastador, mas você sabe que é melhor do que tudo isso. Pega coragem e corre em linha reta até o cristaleiro que guarda a joia
+        São lasers demais e talvez o perigo iminente seja devastador, mas você sabe que é melhor do que tudo isso. Você junta toda a sua coragem e corre em linha reta até o cristaleiro que guarda a joia e...
 """)
         slowPrint(text: """
-        Eh falsa!!!!!!!!!! ELA SE DESFAZ NA SUA MÃO. Um barulho ensurdecedor ecoa pelo salão e você encontra um rugido. Um esqueleto ENORME atrás de você!
+                É FALSA! A jóia se desfaz na sua frente e um barulho ensurdecedor ecoa pelo salão e você encontra um rugido. Tem um esqueleto ENORME atrás de você!
 """)
         monsterBig()
     }else{
-        print("Não fique nervoso calma!! Escolha novamente.")
+        print("Calma! Não precisa ficar nervoso. Escolha novamente.")
         thirdFloor()
     }
-    
     
 }
 

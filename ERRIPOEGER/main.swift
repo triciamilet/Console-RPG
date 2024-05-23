@@ -199,5 +199,4 @@ print()
 slowPrint(text: "Você dá passos furtivos e com cuidado, sempre olhando para todas as direções por precaução. Após uma longa caminhada, você se deparou com um piso elevado e dois caminhos para seguir.")
 
 secondChoice()
-secondFloor()
 

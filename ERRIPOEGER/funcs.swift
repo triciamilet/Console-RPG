@@ -178,6 +178,7 @@ func thirdChoice() {
     print("""
 1 - Explorar o salão.
 2 - Ir até o baú.
+3 - Seguir adiante.
 """)
     print()
     
@@ -187,11 +188,14 @@ func thirdChoice() {
     switch number {
     case 1:
         secondRightExplore()
-        returnToChest()
         break
         
     case 2:
         fourthChoice()
+        break
+        
+    case 3:
+        secondFloor()
         break
         
     case nil:
@@ -309,7 +313,6 @@ func coinsRemained (escolha: Int) {
         
     }
 
-    
     else {
         
         print("Opçao inválida, tente novamente!")
@@ -324,7 +327,7 @@ func coinsRemained (escolha: Int) {
     switch choice3 {
         
     case 0:
-        
+        thirdChoice()
         return
         
     case 1:
@@ -400,7 +403,6 @@ func coinsRemained (escolha: Int) {
         
         var choice = readLine()
         var number = Int(choice!)
-        var answered : Int? = nil
         
         switch number{
             
@@ -475,6 +477,8 @@ func returnToChest() {
         thirdChoice()
         break
     }
+    
+    
     
 }
 
@@ -719,7 +723,7 @@ func charadaCorrectChest() {
     print("   |▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁|".green())
     
     charadaChestRewards()
-    secondRightExplore()
+    thirdChoice()
     
 }
 
@@ -952,7 +956,8 @@ func charadaCorrectBarrel() {
     print("   |▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁|".green())
     
     charadaBarrelRewards()
-    secondRightExplore()
+    slowChoice(text: "Você retorna para o salão de portas. O que você faz?")
+    doors()
     
 }
 
