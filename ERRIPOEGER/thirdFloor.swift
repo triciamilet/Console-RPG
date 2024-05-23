@@ -121,6 +121,8 @@ func monsterBig(){
 
 """)
     
+    combat2(esqueleto: &npcEsqueleto, coelho: &npcCoelho)
+    
     
     
 }

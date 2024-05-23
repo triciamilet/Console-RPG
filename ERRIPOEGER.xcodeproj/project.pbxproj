@@ -10,6 +10,7 @@
 		4948BDFC2BEE9BD100A88DA9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4948BDFB2BEE9BD100A88DA9 /* main.swift */; };
 		497DDCA22BFE6FA300A30BC8 /* thirdFloor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497DDCA12BFE6FA300A30BC8 /* thirdFloor.swift */; };
 		49EB59F12BFFC40E0022F35D /* fightNPC01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB59F02BFFC40E0022F35D /* fightNPC01.swift */; };
+		49EB59F32BFFD12A0022F35D /* fightNPC02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB59F22BFFD12A0022F35D /* fightNPC02.swift */; };
 		49FD894D2BFBE0E7006104CA /* secondFloor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD894C2BFBE0E7006104CA /* secondFloor.swift */; };
 		49FD894F2BFBE0F2006104CA /* funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD894E2BFBE0F2006104CA /* funcs.swift */; };
 		49FD89512BFBE0FD006104CA /* funcsPrints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD89502BFBE0FD006104CA /* funcsPrints.swift */; };
@@ -33,6 +34,7 @@
 		4948BDFB2BEE9BD100A88DA9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		497DDCA12BFE6FA300A30BC8 /* thirdFloor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdFloor.swift; sourceTree = "<group>"; };
 		49EB59F02BFFC40E0022F35D /* fightNPC01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fightNPC01.swift; sourceTree = "<group>"; };
+		49EB59F22BFFD12A0022F35D /* fightNPC02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fightNPC02.swift; sourceTree = "<group>"; };
 		49FD894C2BFBE0E7006104CA /* secondFloor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondFloor.swift; sourceTree = "<group>"; };
 		49FD894E2BFBE0F2006104CA /* funcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funcs.swift; sourceTree = "<group>"; };
 		49FD89502BFBE0FD006104CA /* funcsPrints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funcsPrints.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				497DDCA12BFE6FA300A30BC8 /* thirdFloor.swift */,
 				49FD89522BFBE108006104CA /* colors.swift */,
 				49EB59F02BFFC40E0022F35D /* fightNPC01.swift */,
+				49EB59F22BFFD12A0022F35D /* fightNPC02.swift */,
 			);
 			path = ERRIPOEGER;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49EB59F32BFFD12A0022F35D /* fightNPC02.swift in Sources */,
 				49FD894D2BFBE0E7006104CA /* secondFloor.swift in Sources */,
 				49FD89532BFBE108006104CA /* colors.swift in Sources */,
 				49FD894F2BFBE0F2006104CA /* funcs.swift in Sources */,
