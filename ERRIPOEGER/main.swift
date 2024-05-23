@@ -10,7 +10,7 @@ import Foundation
 var inventoryList: [(qty: Int, item: String)] = []
 var alavanca = false
 var sword = false
-inventoryList.append((10, "Moedas de Ouro"))
+inventoryList.append((10, "Moedas de Ouros"))
 inventoryList.append((1, "Isqueiro"))
 inventoryList.append((2, "Cenoura"))
 
