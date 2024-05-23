@@ -186,7 +186,7 @@ func doorSouth() {
     switch number {
         
     case 1:
-        combat(player1: &npc1, player2: &npc2)
+        combat1(player1: &aranha, player2: &coelho1)
         doors()
         break
         
