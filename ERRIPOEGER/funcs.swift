@@ -12,20 +12,21 @@ func selectLighter() {
     
     if let selectedItem = inventory() {
         if selectedItem == "Isqueiro" {
-            print("Você acendeu o isqueiro e o corredor se iluminou na sua frente.")
+            print()
+            print("\nVocê acendeu o isqueiro e o corredor se iluminou na sua frente.")
         } else {
             print("Não sei onde esse item pode ser útil.. Escolha outro")
             selectLighter()
         }
     }
-   
+    
 }
 
 func selectCandle() {
-
+    
     if let selectedItem = inventory() {
         if selectedItem == "Vela" {
-            print("Você acendeu a vela e o corredor se iluminou na sua frente.")
+            print("\nVocê acendeu a vela e o corredor se iluminou na sua frente.")
             slowChoice(text: "Agora enxergando um pouco melhor, você consegue identificar o caminho a seguir. Ao final do corredor você encontra um papel na parede atrás de um barril. O que você faz?")
             barrel()
         } else {
@@ -33,14 +34,14 @@ func selectCandle() {
             selectCandle()
         } //if selecteditem for FECHAR INVENTARIO, voltar para o corredor de portas.
     }
-
+    
 }
 
 func secondChoice() {
     print("""
     1 - Pisar em Cima
     2 - Desviar
-""")
+""".red())
     print()
     
     let choice = readLine()!
@@ -54,7 +55,7 @@ func secondChoice() {
         print("""
     1 - ESQUERDA!
     2 - DIREITA!
-    """)
+    """ .red())
         
         quickSum(time: 5)
         
@@ -65,7 +66,7 @@ func secondChoice() {
             queue.asyncAfter(deadline: timeLimit) {
                 
                 if answered == nil {
-                    print("As flechas te pegaram e você perdeu. :(")
+                    print("/nAs flechas te pegaram e você perdeu. :(")
                     print("Jogue novamente.")
                     exit(0)
                 }
@@ -90,15 +91,15 @@ func secondChoice() {
         print("""
     1 - Esquerda.
     2 - Direita.
-    """)
-        
+    """ .red())
+        print()
         var answer = Int(readLine()!)
         if (answer == 2) {
             
             thirdChoice()
             
         } else {
-            
+            secondFloor()
         }
         
         break
@@ -117,7 +118,7 @@ func firstChoice() {
     2 - Tatear as paredes
     3 - Olhar de perto
     4 - Procurar no google
-""")
+""" .red())
     print()
     
     let choice = readLine()
@@ -126,34 +127,34 @@ func firstChoice() {
     switch number{
         
     case 1:
-        slowChoice(text:"Você escava um pouco da areia ao redor e encontra algo enterrado. É uma alavanca quebrada. Talvez seja útil para alguma coisa.")
+        slowChoice(text:"Você escava um pouco da areia ao redor e encontra algo enterrado. É uma alavanca quebrada. Talvez seja útil para alguma coisa." .italic())
         alavanca = true
         firstChoice()
         break
         
     case 2:
-        slowChoice(text:"QUENTE! Ficar o dia inteiro nesse sol escaldante deixou as paredes quase pegando fogo.")
+        slowChoice(text:"QUENTE! Ficar o dia inteiro nesse sol escaldante deixou as paredes quase pegando fogo." .italic())
         firstChoice()
         break
         
     case 3:
         
         if alavanca {
-            slowPrint(text: "Você força a vista e tenta identificar alguma coisa nos desenhos da parede. Tudo empoeirado. Você encontra um espaço que parece algum tipo de encaixe, talvez a alavanca sirva para isso. Você encaixa a alavanca e puxa para baixo.")
+            slowPrint(text: "Você força a vista e tenta identificar alguma coisa nos desenhos da parede. Tudo empoeirado. Você encontra um espaço que parece algum tipo de encaixe, talvez a alavanca sirva para isso. Você encaixa a alavanca e puxa para baixo." .italic())
             
         } else {
-            slowChoice(text: "Você força a vista e tenta identificar alguma coisa nos desenhos da parede. Tudo empoeirado. Você encontra um espaço que parece algum tipo de encaixe, mas não parece ser útil por enquanto.")
+            slowChoice(text: "Você força a vista e tenta identificar alguma coisa nos desenhos da parede. Tudo empoeirado. Você encontra um espaço que parece algum tipo de encaixe, mas não parece ser útil por enquanto." .italic())
             firstChoice()
         }
         break
         
     case 4:
-        slowChoice(text: "Boa tentativa, mas não tem sinal de internet por aqui. Continue tentando!")
+        slowChoice(text: "Boa tentativa, mas não tem sinal de internet por aqui. Continue tentando!" .italic())
         print()
         firstChoice()
         print()
         break
-    
+        
     case nil:
         switchDefault()
         firstChoice()
@@ -165,7 +166,7 @@ func firstChoice() {
         firstChoice()
         print()
         break
-
+        
     }
 }
 
@@ -176,10 +177,10 @@ func thirdChoice() {
     slowChoice(text: "Você se depara com um salão enorme e algumas tochas iluminam o local. Tem um baú no centro recebendo uma luz de cima")
     
     print("""
-1 - Explorar o salão.
-2 - Ir até o baú.
-3 - Seguir adiante.
-""")
+    1 - Explorar o salão.
+    2 - Ir até o baú.
+    3 - Seguir adiante.
+""".red())
     print()
     
     var choice = readLine()
@@ -215,11 +216,11 @@ func thirdChoice() {
 
 func inventory() -> String? {
     
-    print("Itens disponiveis")
+    print("Itens disponiveis:\n")
+    
     for i in 0..<inventoryList.count {
-        print(i+1 , "- ", inventoryList[i].qty, "x ", inventoryList[i].item)
+        print(i+1 , "- ", inventoryList[i].qty, "", inventoryList[i].item)
     }
-    print()
     print("0 - Fechar o Inventário")
     print()
     
@@ -240,23 +241,19 @@ func inventory() -> String? {
         print("Esse item não existe.")
         return inventory()
     }
+        
     
-    //    listPosition = Optional("3")
-    //    confirmedPosition = "3"
-    //    number = 3
-    
-  
 }
 //Para adicionar item no inventário, utilizar inventoryList.append((Quantidade, "Nome do Item"))
 
 func secondRightExplore() {
-    slowPrint(text: "Você anda cautelosamente pelo salão, enquanto encarava aos arredores do baú. Você percebe que o salão é redondo com um degrau de plataforma elevada no centro. Existem algumas meias-paredes e pilastras muito antigas e aos pedaços.")
+    slowPrint(text: "Você anda cautelosamente pelo salão, enquanto encarava aos arredores do baú. Você percebe que o salão é redondo com um degrau de plataforma elevada no centro. Existem algumas meias-paredes e pilastras muito antigas e aos pedaços.".italic())
     slowPrint(text: "VOCÊ SE APROXIMA")
-    slowPrint(text: "Você vê uma sequência de sacórfagos enfileirados de maneira desorganizada, alguns de pé, outros apoiados em outros, alguns quebrados por inteiro e outros apenas trincados. O que chama a sua atenção é que, enquanto todos os outros estão muito danificados e você consegue enxergar o interior deles, existe um que está completamente fechado.")
-    slowPrint(text: "VOCÊ SE APROXIMA CADA VEZ MAIS...")
-    slowPrint(text: "Em passos muito lentos...")
-    slowPrint(text: "Quando você chega bem perto do sacorfágo para analisar, e...")
-    slowPrint(text: "Um esqueleto ABRE A PORTA BEM NA SUA FRENTE!!!! E ele está VIVO! O que você faz?")
+    slowPrint(text: "Você vê uma sequência de sacórfagos enfileirados de maneira desorganizada, alguns de pé, outros apoiados em outros, alguns quebrados por inteiro e outros apenas trincados. O que chama a sua atenção é que, enquanto todos os outros estão muito danificados e você consegue enxergar o interior deles, existe um que está completamente fechado." .italic())
+    slowPrint(text: "VOCÊ SE APROXIMA CADA VEZ MAIS..." .italic())
+    slowPrint(text: "Em passos muito lentos..." .italic())
+    slowPrint(text: "Quando você chega bem perto do sacorfágo para analisar, e..." .italic())
+    slowPrint(text: "Um esqueleto ABRE A PORTA BEM NA SUA FRENTE!!!! E ele está VIVO! O que você faz?" .italic())
     
     print("""
               1 - Matar Esqueleto
@@ -279,7 +276,7 @@ func shopBoard() -> Int {
     ♰   4. Vela                        $ 1.00      ♰
     ♰   0. Fechar loja                             ♰
     ♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰♰
-    """)
+    """ .red())
     return Int(readLine()!)!
     
 }
@@ -312,7 +309,7 @@ func coinsRemained (escolha: Int) {
         choice3 = shopBoard()
         
     }
-
+    
     else {
         
         print("Opçao inválida, tente novamente!")
@@ -339,7 +336,7 @@ func coinsRemained (escolha: Int) {
             } else {
                 inventoryList.append((1, "Cenoura"))
             }
-  
+            
         }else{
             print("Você não tem moedas suficientes 😢")
         }
@@ -393,50 +390,52 @@ func coinsRemained (escolha: Int) {
     }
     coinsRemained(escolha: 3)
 }
-    func fourthChoice() {
+func fourthChoice() {
+    
+    slowChoice(text: "O baú reluz sob a luz que vem de cima. Os detalhes de ouro refletem tanto que seus olhos brilham de ganância. Você sente um desejo enorme de abrir.")
+    
+    print("""
+    1 - Abrir o baú
+    2 - Ignorar e explorar o salão
+    3 - Voltar atrás e seguir adiante
+    """.red())
+    
+    var choice = readLine()
+    var number = Int(choice!)
+    
+    switch number{
         
-        slowChoice(text: "O baú reluz sob a luz que vem de cima. Os detalhes de ouro refletem tanto que seus olhos brilham de ganância. Você sente um desejo enorme de abrir.")
+    case 1:
+        slowPrint(text: "Você hesita um pouco, mas não resiste!")
+        //colocar a foto de um baú
+        slowPrint(text: "Com muita dificuldade, você tenta abrir o baú na sua frente. Ele é muito grande e pesado. Você puxa a tampa e ela abre. Mas, o que é isso?")
+        slowPrint(text: "Tem um baú muito pequeno lá dentro e um papel do lado de fora, colado na tampa.")
+        // colocar um papel escrito a charada
         
-        print("1 - Abrir o baú")
-        print("2 - Ignorar e explorar o salão")
-        print("3 - Voltar atrás e seguir adiante")
+        charadaChest()
         
-        var choice = readLine()
-        var number = Int(choice!)
+        break
         
-        switch number{
-            
-        case 1:
-            slowPrint(text: "Você hesita um pouco, mas não resiste!")
-            //colocar a foto de um baú
-            slowPrint(text: "Com muita dificuldade, você tenta abrir o baú na sua frente. Ele é muito grande e pesado. Você puxa a tampa e ela abre. Mas, o que é isso?")
-            slowPrint(text: "Tem um baú muito pequeno lá dentro e um papel do lado de fora, colado na tampa.")
-            // colocar um papel escrito a charada
-            
-            charadaChest()
-            
-            break
-            
-        case 2:
-            secondRightExplore()
-            returnToChest()
-            break
-            
-        case 3:
-            secondFloor()
-            break
-            
-        case nil:
-            switchDefault()
-            fourthChoice()
-            break
-            
-        default:
-            switchDefault()
-            fourthChoice()
-            break
-        }
+    case 2:
+        secondRightExplore()
+        returnToChest()
+        break
+        
+    case 3:
+        secondFloor()
+        break
+        
+    case nil:
+        switchDefault()
+        fourthChoice()
+        break
+        
+    default:
+        switchDefault()
+        fourthChoice()
+        break
     }
+}
 
 func switchDefault() {
     slowChoice(text: "Você andou em círculos e não chegou em lugar nenhum. Tente novamente.")
@@ -450,8 +449,7 @@ func returnToChest() {
     print("""
     1 - Ir até o baú
     2 - Seguir adiante.
-
-    """)
+    """ .red())
     
     
     let choice = readLine()
@@ -484,19 +482,19 @@ func returnToChest() {
 
 
 func charadaChest() {
-let resp1 = "VENTO"
-let resp2 = "MAPA"
-let resp3 = "VELA"
-let resp4 = "CHUVA"
-let resp5 = "RIO"
-let resp6 = "TEMPERATURA"
-let resp7 = "FUTURO"
-let resp8 = "GUARDA-CHUVA"
-let resp9 = "MAR"
-let resp10 = "FOGO"
-let sair = "SAIR"
-
-
+    let resp1 = "VENTO"
+    let resp2 = "MAPA"
+    let resp3 = "VELA"
+    let resp4 = "CHUVA"
+    let resp5 = "RIO"
+    let resp6 = "TEMPERATURA"
+    let resp7 = "FUTURO"
+    let resp8 = "GUARDA-CHUVA"
+    let resp9 = "MAR"
+    let resp10 = "FOGO"
+    let sair = "SAIR"
+    
+    
     let listaCharada: [Int : String] = [
         1 : "   |                             Passa diante do sol e não faz sombra?                           |",
         
@@ -719,9 +717,9 @@ func charadaIncorrect() {
 
 func charadaCorrectChest() {
     
-    print("   |                                      Resposta Correta!!                                     |".green())
-    print("   |▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁|".green())
-    
+    print("   |                                      Resposta Correta!!                                     |".red())
+    print("   |▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁|".red())
+    print()
     charadaChestRewards()
     thirdChoice()
     
@@ -731,35 +729,35 @@ func charadaChestRewards() {
     
     if let posicaoItem = buscarIndice(item: "Cenoura") {
         inventoryList[posicaoItem].qty += 1
-        print("Você recebeu o item CENOURA. Agora você dispõe de $\(inventoryList[2].qty) cenouras")
+        print("Você recebeu o item CENOURA. Agora você dispõe de $\(inventoryList[2].qty) cenouras".italic())
     } else {
         inventoryList.append((1, "Cenoura"))
-        print("Você recebeu o item CENOURA. Agora você dispõe de $\(inventoryList[2].qty) cenouras")
+        print("Você recebeu o item CENOURA. Agora você dispõe de $\(inventoryList[2].qty) cenouras".italic())
     }
     if let posicaoItem = buscarIndice(item: "Moedas de Ouro") {
         inventoryList[posicaoItem].qty += 5
-        print("Você recebeu o item MOEDAS DE OURO. Agora você dispõe de $\(inventoryList[0].qty) moedas")
+        print("Você recebeu o item MOEDAS DE OURO. Agora você dispõe de $\(inventoryList[0].qty) moedas".italic())
     } else {
         inventoryList.append((5, "Moedas de Ouro"))
-        print("Você recebeu o item MOEDAS DE OURO. Agora você dispõe de $\(inventoryList[0].qty) moedas")
+        print("Você recebeu o item MOEDAS DE OURO. Agora você dispõe de $\(inventoryList[0].qty) moedas".italic())
     }
     
 }
 
 func charadaBarrel() {
-let resp1 = "VENTO"
-let resp2 = "MAPA"
-let resp3 = "VELA"
-let resp4 = "CHUVA"
-let resp5 = "RIO"
-let resp6 = "TEMPERATURA"
-let resp7 = "FUTURO"
-let resp8 = "GUARDA-CHUVA"
-let resp9 = "MAR"
-let resp10 = "FOGO"
-let sair = "SAIR"
-
-
+    let resp1 = "VENTO"
+    let resp2 = "MAPA"
+    let resp3 = "VELA"
+    let resp4 = "CHUVA"
+    let resp5 = "RIO"
+    let resp6 = "TEMPERATURA"
+    let resp7 = "FUTURO"
+    let resp8 = "GUARDA-CHUVA"
+    let resp9 = "MAR"
+    let resp10 = "FOGO"
+    let sair = "SAIR"
+    
+    
     let listaCharada: [Int : String] = [
         1 : "   |                             Passa diante do sol e não faz sombra?                           |",
         
@@ -956,7 +954,7 @@ func charadaCorrectBarrel() {
     print("   |▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁|".green())
     
     charadaBarrelRewards()
-    slowChoice(text: "Você retorna para o salão de portas. O que você faz?")
+    slowChoice(text: "Você retorna para o salão de portas. O que você faz?".italic())
     doors()
     
 }

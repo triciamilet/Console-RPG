@@ -143,10 +143,10 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
               '-_`-,       ` `   .╱`
                  `-(_            )
                      ^^╲..___,.--`
-        """)
+        """.red2())
         
-        slowPrint(text: "Parabens \(player2.name) venceu o combate!")
-        slowPrint(text: "Você é digno de receber a joia valiosa 💎 que estava dentro do crânio do monstro. Poucos guerreiros chegaram até aqui. Espero contar com você em uma próxima missão. ATE JÁ!!!!")
+        slowPrint(text: "Parabens \(player2.name) venceu o combate!".italic())
+        slowPrint(text: "Você é digno de receber a joia valiosa 💎 que estava dentro do crânio do monstro. Poucos guerreiros chegaram até aqui. Espero contar com você em uma próxima missão. ATE JÁ!!!!".italic())
         print("""
 
                                                                
@@ -169,7 +169,7 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
                 FFFFFFFFFFF           IIIIIIIIIIMMMMMMMM               MMMMMMMM
                                                                
                                            
-""")
+""".bgCyan())
         
     } else {
         print("\(player1.name) venceu o combate!")

@@ -51,36 +51,36 @@ print()
 print("                                                                          ".bgRed())
 print()
 
-slowPrint(text: "Muitos anos atrás, a desigualdade prevaleceu no mundo de Wald e a população foi dividida entre os mais ricos e o Resto. Agora, a única forma de sobrevivência é um paradoxo onde é necessário arriscar a sua própria vida todos os dias. Os mais ricos e poderosos da sociedade estão sempre sedentos pelo entretenimento sombrio de dificultar a vida dos outros e têm fortunas suficientes para pagar valores exorbitantes para contratá-los para fazerem o que eles desejam, que eles próprios não tem coragem de enfrentar.")
+slowPrint(text: "Muitos anos atrás, a desigualdade prevaleceu no mundo de Wald e a população foi dividida entre os mais ricos e o Resto. Agora, a única forma de sobrevivência é um paradoxo onde é necessário arriscar a sua própria vida todos os dias. Os mais ricos e poderosos da sociedade estão sempre sedentos pelo entretenimento sombrio de dificultar a vida dos outros e têm fortunas suficientes para pagar valores exorbitantes para contratá-los para fazerem o que eles desejam, que eles próprios não tem coragem de enfrentar.".italic().bold())
 
-slowPrint(text: "Você é o agente Coelho, um dos melhores dos milhares caçadores de recompensas. Após terminar a sua missão mais recente, você foi até o painel de solicitações para aceitar a próxima.")
+slowPrint(text: "Você é o agente Coelho, um dos melhores dos milhares caçadores de recompensas. Após terminar a sua missão mais recente, você foi até o painel de solicitações para aceitar a próxima.".italic())
 
 print("""
-               ┏━━━━━━┓                       ┏━━━━━━┓
-        ┏━━━━━━┻━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━┻━━━━━━┓
-        ┃    __  __ ___ ____ ____   ___  _____ ____         ┃
-        ┃    |  ╲╱  |_ _/ ___/ ___| / _ ╲| ____/ ___|       ┃
-        ┃    | |╲╱| || |╲___ ╲___ ╲┃ | | |  _| ╲___ ╲       ┃
-        ┃    | |  | || | ___) |__) | |_| | |___ ___) |      ┃
-        ┃    |_|  |_|___|____/____/ ╲___/|_____|____/       ┃
-        ┃                                                   ┃
-        ┃       ┏━━━━━┓                     ┏━━━━━┓         ┃
-        ┃   ┏━━━┻━┓   ┃  ┏━━━━━┓            ┃     ┃         ┃
-        ┃   ┃     ┃   ┃  ┃    ┏┻━━━━┓       ┃     ┃         ┃
-        ┃   ┃     ┃   ┃  ┃┏━━━┻━┓   ┃       ┃     ┣━━━━━┓   ┃
-        ┃   ┃    ┏┻━━━┻┓ ┃┃ 👑✱ ┃   ┃       ┗━━━━━┫     ┃   ┃
-        ┃   ┗━━━━┫     ┃ ┗┫ $99 ┃   ┃             ┃     ┃   ┃
-        ┃        ┃     ┃  ┃ 999 ┣━━━┛             ┃     ┃   ┃
-        ┃        ┃     ┃  ┗━━━━━┛                 ┗━━━━━┛   ┃
-        ┃        ┗━━━━━┛                                    ┃
-        ┗━━━━━━┳━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━┳━━━━━━┛
-               ┃      ┃                       ┃      ┃
-               ┊      ┊                       ┊      ┊
-""")
+                                                   ┏━━━━━━┓                       ┏━━━━━━┓
+                                            ┏━━━━━━┻━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━┻━━━━━━┓
+                                            ┃    __  __ ___ ____ ____   ___  _____ ____         ┃
+                                            ┃    |  ╲╱  |_ _/ ___/ ___| / _ ╲| ____/ ___|       ┃
+                                            ┃    | |╲╱| || |╲___ ╲___ ╲┃ | | |  _| ╲___ ╲       ┃
+                                            ┃    | |  | || | ___) |__) | |_| | |___ ___) |      ┃
+                                            ┃    |_|  |_|___|____/____/ ╲___/|_____|____/       ┃
+                                            ┃                                                   ┃
+                                            ┃       ┏━━━━━┓                     ┏━━━━━┓         ┃
+                                            ┃   ┏━━━┻━┓   ┃  ┏━━━━━┓            ┃     ┃         ┃
+                                            ┃   ┃     ┃   ┃  ┃    ┏┻━━━━┓       ┃     ┃         ┃
+                                            ┃   ┃     ┃   ┃  ┃┏━━━┻━┓   ┃       ┃     ┣━━━━━┓   ┃
+                                            ┃   ┃    ┏┻━━━┻┓ ┃┃ 👑✱ ┃   ┃       ┗━━━━━┫     ┃   ┃
+                                            ┃   ┗━━━━┫     ┃ ┗┫ $99 ┃   ┃             ┃     ┃   ┃
+                                            ┃        ┃     ┃  ┃ 999 ┣━━━┛             ┃     ┃   ┃
+                                            ┃        ┃     ┃  ┗━━━━━┛                 ┗━━━━━┛   ┃
+                                            ┃        ┗━━━━━┛                                    ┃
+                                            ┗━━━━━━┳━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━┳━━━━━━┛
+                                                   ┃      ┃                       ┃      ┃
+                                                   ┊      ┊                       ┊      ┊
+""".black())
 print()
-slowPrint(text: "No painel, tem uma missão de alto risco. O objetivo é recuperar uma joia valiosa que está localizada em uma tumba no deserto de Skarlet. O risco é alto, mas a recompensa é maior ainda.")
+slowPrint(text: "No painel, tem uma missão de alto risco. O objetivo é recuperar uma joia valiosa que está localizada em uma tumba no deserto de Skarlet. O risco é alto, mas a recompensa é maior ainda.".italic())
 
-slowPrint(text: "A viagem até as tumbas de Skarlet é sufocante. O sol escaldante e  o horizonte interminável lhe cansam, mas não são suficientes para te fazer desistir. Você anda por mais de 5 quilômetros sem parar até chegar no seu destino final.")
+slowPrint(text: "A viagem até as tumbas de Skarlet é sufocante. O sol escaldante e  o horizonte interminável lhe cansam, mas não são suficientes para te fazer desistir. Você anda por mais de 5 quilômetros sem parar até chegar no seu destino final.".italic())
 
 print("""
 
@@ -126,11 +126,11 @@ print("""
     ┃                   ┃               ┃    ()()
     ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━┛    (ᴥ  )o
     
-""")
+""".blue())
 
-slowPrint(text: "A construção é monumental e quase que etérea, você não consegue imaginar como que isso tudo poderia ter sido construído por seres vivos mortais. Você olha para cima para ver a imensidão e o prédio some em meio às nuvens.")
+slowPrint(text: "A construção é monumental e quase que etérea, você não consegue imaginar como que isso tudo poderia ter sido construído por seres vivos mortais. Você olha para cima para ver a imensidão e o prédio some em meio às nuvens.".italic())
 
-slowPrint(text: "Você anda em volta e analisa as paredes, parece que não há portas. Mas deve haver um meio de entrar.")
+slowPrint(text: "Você anda em volta e analisa as paredes, parece que não há portas. Mas deve haver um meio de entrar.".italic())
 
 firstChoice()
 
@@ -165,13 +165,13 @@ print("""
                          ⎝▁▁〇▁▁⎠
 
 
-""")
+""".bgCyan())
 
-slowPrint(text: "As tochas do lado de fora se apagaram subitamente, uma a uma, e uma porta enorme se abriu com agressividade. Lá dentro está muito escuro.")
+slowPrint(text: "As tochas do lado de fora se apagaram subitamente, uma a uma, e uma porta enorme se abriu com agressividade. Lá dentro está muito escuro.".italic())
 
 slowPrint(text: "ENTRAR.")
 
-slowPrint(text: "Você espanta qualquer medo que ameaçou sentir e atravessa a porta.")
+slowPrint(text: "Você espanta qualquer medo que ameaçou sentir e atravessa a porta.".italic())
 
 print("""
 
@@ -185,18 +185,18 @@ print("""
  
 
 
-""")
+""".red())
 
-slowPrint(text:"A porta fechou logo atrás de você, e agora você está preso dentro da tumba.")
+slowPrint(text:"A porta fechou logo atrás de você, e agora você está preso dentro da tumba.".italic())
 
-slowPrint(text: "Está muito escuro. Você não enxerga um palmo à frente. Talvez você tenha algum item que possa iluminar o lugar.")
+slowPrint(text: "Está muito escuro. Você não enxerga um palmo à frente. Talvez você tenha algum item que possa iluminar o lugar.".italic())
 
 slowPrint(text: "ABRIR INVENTÁRIO.")
 
 selectLighter()
 
 print()
-slowPrint(text: "Você dá passos furtivos e com cuidado, sempre olhando para todas as direções por precaução. Após uma longa caminhada, você se deparou com um piso elevado e dois caminhos para seguir.")
+slowPrint(text: "Você dá passos furtivos e com cuidado, sempre olhando para todas as direções por precaução. Após uma longa caminhada, você se deparou com um piso elevado e dois caminhos para seguir.".italic())
 
 secondChoice()
 

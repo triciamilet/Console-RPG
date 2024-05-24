@@ -28,15 +28,16 @@ func doors() {
 【▒▒▒▒▒▒▒▒】        【▒▒▒▒▒▒▒▒】      【▒▒▒▒▒▒▒▒】           【▒▒▒▒▒▒▒▒】
  【▒▒▒▒▒▒】          【▒▒▒▒▒▒】        【▒▒▒▒▒▒】             【▒▒▒▒▒▒】
    Norte                Sul             Leste                 Oeste
-
-Escolha uma delas :
-
- 1. Norte
- 2. Sul
- 3. Leste
- 4. Oeste
-
-""")
+""" .red())
+    
+    print("""
+    \nEscolha uma delas :
+    
+     1. Norte
+     2. Sul
+     3. Leste
+     4. Oeste
+    """.red())
     
     var choice = readLine()
     var number = Int(choice!)
@@ -66,7 +67,7 @@ Escolha uma delas :
         switchDefault()
         doors()
     }
-
+    
 }
 
 func doorNorth(){
@@ -81,11 +82,11 @@ func doorNorth(){
 """)
     
     slowChoice(text: "Você espia pela porta e percebe que é um caminho extremamente escuro.")
-    
+    print()
     print("""
           1 - Continuar
           2 - Voltar
-          """)
+          """.red())
     print()
     
     let next2 = Int(readLine()!)!
@@ -93,7 +94,7 @@ func doorNorth(){
     if (next2 == 1) {
         doorNorthChallenge()
     }else{
-        slowChoice(text: "Você amarela e retorna para o salão de portas.")
+        slowChoice(text: "Você amarela e retorna para o salão de portas.".italic())
         doors()
         
     }
@@ -102,8 +103,8 @@ func doorNorth(){
 
 func doorNorthChallenge(){
     
-    slowPrint(text: "O corredor é bem mais longo e mais escuro do que você esperava. Muita areia entra nos seus olhos e dificulta a sua visão.")
-    slowPrint(text: "Você começa andar em circulos e não sabe mais onde for parar. Talvez você tenha algum item melhor que o seu isqueiro que possa iluminar o lugar.")
+    slowPrint(text: "O corredor é bem mais longo e mais escuro do que você esperava. Muita areia entra nos seus olhos e dificulta a sua visão.".italic())
+    slowPrint(text: "Você começa andar em circulos e não sabe mais onde for parar. Talvez você tenha algum item melhor que o seu isqueiro que possa iluminar o lugar.".italic())
     slowPrint(text: "ABRIR INVENTÁRIO.")
     
     selectCandle()
@@ -113,25 +114,25 @@ func doorNorthChallenge(){
 func barrel() {
     
     print("""
-    1 - Ler o que está escrito.
-    2 - DESTRUIR BARRIL!
-""")
+        1 - Ler o que está escrito.
+        2 - DESTRUIR BARRIL!
+""".red())
     print()
     
     var choice = readLine()
     var number = Int(choice!)
-        
+    
     switch number {
     case 1:
         charadaBarrel()
         removerDoInventario(item: "Vela", qty: 1)
         break
-             
+        
     case 2:
         removerDoInventario(item: "Vela", qty: 1)
         if sword {
-            slowPrint(text: "Você empunha a sua espada e utiliza-a para atravessar o barril, partindo a madeira em duas.")
-            slowPrint(text: "Você retira os destroços do caminho e olha lá dentro. Tem alguns itens. Você enfia a sua mão lá dentro para pegá-los.")
+            slowPrint(text: "Você empunha a sua espada e utiliza-a para atravessar o barril, partindo a madeira em duas.".italic())
+            slowPrint(text: "Você retira os destroços do caminho e olha lá dentro. Tem alguns itens. Você enfia a sua mão lá dentro para pegá-los.".italic())
             
             if let posicaoItem = buscarIndice(item: "Escudo") {
                 inventoryList[posicaoItem].qty += 1
@@ -139,16 +140,16 @@ func barrel() {
                 inventoryList.append((1, "Escudo"))
             }
             
-            print("Você recebeu o item ESCUDO. Agora você dispõe de \(inventoryList[buscarIndice(item: "Escudo")!].qty) escudo")
+            print("Você recebeu o item ESCUDO. Agora você dispõe de \(inventoryList[buscarIndice(item: "Escudo")!].qty) escudo".italic())
             
-            slowChoice(text: "Você retorna para o salão de portas. O que você faz?")
+            slowChoice(text: "Você retorna para o salão de portas. O que você faz?".italic())
             doors()
         } else {
-            slowChoice(text: "Você não possui nenhuma ferramenta para destruir o barril. É melhor desistir dessa ideia.")
+            slowChoice(text: "Você não possui nenhuma ferramenta para destruir o barril. É melhor desistir dessa ideia.".italic())
             barrel()
         }
         break
-            
+        
     case nil:
         switchDefault()
         barrel()
@@ -162,7 +163,7 @@ func barrel() {
 }
 
 func doorSouth() {
-       print("""
+    print("""
                                          🔥____🔥
                                         【      】
                                        【      ✞ 】
@@ -170,15 +171,15 @@ func doorSouth() {
                                        【        】
                                         【______】
                                            Sul
-   """)
-       
-       slowChoice(text: "Você espia pela porta e percebe que é um caminho cheio de teias.")
-       
-       print("""
-             1 - Continuar
-             2 - Voltar
-             """)
-       print()
+   """.red())
+    
+    slowChoice(text: "Você espia pela porta e percebe que é um caminho cheio de teias.".italic())
+    
+    print("""
+        1 - Continuar
+        2 - Voltar
+        """.red())
+    print()
     
     var choice = readLine()
     var number = Int(choice!)
@@ -186,8 +187,9 @@ func doorSouth() {
     switch number {
         
     case 1:
+        pathFigth()
         combat1(player1: &aranha, player2: &coelho1)
-        doors()
+        thirdFloor()
         break
         
     case 2:
@@ -201,11 +203,11 @@ func doorSouth() {
         break
     }
     
-       
+    
 }
 
 func doorEast() {
-       print("""
+    print("""
                                          🔥____🔥
                                         【      】
                                        【      ✞ 】
@@ -213,15 +215,15 @@ func doorEast() {
                                        【        】
                                         【______】
                                         Leste
-   """)
-       
-       slowChoice(text: "Você espia pela porta e percebe que é o chão tem diversas marcas do tempo.")
-       
-       print("""
+   """.red())
+    
+    slowChoice(text: "Você espia pela porta e percebe que é o chão tem diversas marcas do tempo.")
+    
+    print("""
              1 - Continuar
              2 - Voltar
-             """)
-       print()
+             """.red())
+    print()
     
     var choice = readLine()
     var number = Int(choice!)
@@ -229,13 +231,13 @@ func doorEast() {
     switch number {
         
     case 1:
-        slowPrint(text: "Você dá um primeiro passo à diante e... o chão se abre em baixo de você! Você caiu o andar inferior e perdeu 3 HP.")
-        slowPrint(text: "Mesmo com dores nas pernas, você retorna ao terceiro andar. Agora você precisa tomar mais cuidado para não voltar no mesmo caminho.")
+        slowPrint(text: "Você dá um primeiro passo à diante e... o chão se abre em baixo de você! Você caiu o andar inferior e perdeu 3 HP.".italic())
+        slowPrint(text: "Mesmo com dores nas pernas, você retorna ao terceiro andar. Agora você precisa tomar mais cuidado para não voltar no mesmo caminho.".italic())
         doors()
         break
         
     case 2:
-        slowChoice(text: "Você amarela e retorna para o salão de portas.")
+        slowChoice(text: "Você amarela e retorna para o salão de portas.".italic())
         doors()
         break
         
@@ -259,36 +261,36 @@ func doorWest() {
                                     【        】
                                      【______】
                                        Oeste
-""")
+""".red())
     
-    slowChoice(text: "Você espia pela porta e percebe que a região tem escadas iluminadas logo à frente.")
+    slowChoice(text: "Você espia pela porta e percebe que a região tem escadas iluminadas logo à frente.".italic())
     
     print("""
           1 - Continuar
           2 - Voltar
-          """)
+          """.red())
     print()
- 
- var choice = readLine()
- var number = Int(choice!)
- 
- switch number {
-     
- case 1:
-     thirdFloor()
-     break
-     
- case 2:
-     slowChoice(text: "Você amarela e retorna para o salão de portas.")
-     doors()
-     break
-     
- default:
-     switchDefault()
-     doorWest()
-     break
-     
- }
+    
+    var choice = readLine()
+    var number = Int(choice!)
+    
+    switch number {
+        
+    case 1:
+        thirdFloor()
+        break
+        
+    case 2:
+        slowChoice(text: "Você amarela e retorna para o salão de portas.".italic())
+        doors()
+        break
+        
+    default:
+        switchDefault()
+        doorWest()
+        break
+        
+    }
     
     
 }

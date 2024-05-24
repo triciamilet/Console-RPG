@@ -8,7 +8,7 @@
 import Foundation
 
 func thirdFloor(){
-    slowPrint(text: "Você se direciona para os primeiros degraus e sobe às pressas. Agora você está no terceiro e último andar, cada vez mais próximo de cumprir o seu objetivo.")
+    slowPrint(text: "Você se direciona para os primeiros degraus e sobe às pressas. Agora você está no terceiro e último andar, cada vez mais próximo de cumprir o seu objetivo.".italic())
     print("""
                                      {} {}
                              !  !  ! II II !  !  !
@@ -32,35 +32,35 @@ func thirdFloor(){
     -|--|--|| |  |  |  |  |  |  | || || |  |  |  |  |  |  | ||= |  |  |
     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~~~~~~~~~~~
     
-    """)
+    """.bgBlack())
     
-    slowPrint(text: "BIIIIIIIIP 🚨. Uma porta enorme se abre na sua frente! Só tem um problema... O salão tem um longo corredor e está cheio de lasers de segurança.")
+    slowPrint(text: "BIIIIIIIIP 🚨. Uma porta enorme se abre na sua frente! Só tem um problema... O salão tem um longo corredor e está cheio de lasers de segurança.".italic())
     
     print("""
           1 - Ir com cuidado
           2 - Enfrentar
-          """)
+          """.red())
     print()
     
     var porta3 = Int(readLine()!)!
     if(porta3 == 1){
         slowPrint(text: """
         Você anda com bastante cuidado para não ativar nenhum dispositivo de segurança e, de passo em passo, você se aproxima cada vez mais da joia. Com bastante atenção você estica a mão para puxar a joia e...
-""")
+""".italic())
         slowPrint(text: """
         É FALSA! A jóia se desfaz na sua mão e um barulho ensurdecedor ecoa pelo salão e você encontra um rugido. Tem um esqueleto ENORME atrás de você!
-""")
+""".italic())
         monsterBig()
     }else if(porta3 == 2){
         slowPrint(text: """
         São lasers demais e talvez o perigo iminente seja devastador, mas você sabe que é melhor do que tudo isso. Você junta toda a sua coragem e corre em linha reta até o cristaleiro que guarda a joia e...
-""")
+""".italic())
         slowPrint(text: """
                 É FALSA! A jóia se desfaz na sua frente e um barulho ensurdecedor ecoa pelo salão e você encontra um rugido. Tem um esqueleto ENORME atrás de você!
-""")
+""".italic())
         monsterBig()
     }else{
-        print("Calma! Não precisa ficar nervoso. Escolha novamente.")
+        print("Calma! Não precisa ficar nervoso. Escolha novamente.".italic())
         thirdFloor()
     }
     
@@ -110,7 +110,7 @@ func monsterBig(){
                                              |||||
 
 
-""")
+""".red())
     
     slowPrint(text: """
     MUAHAHAHAHAHAAA!! Voce achou que seria facil assim??
@@ -119,7 +119,7 @@ func monsterBig(){
 
     Eu estava me divertindo muito observando voce passar por todas as minhas salas, mas voce sabia que isso eh invasao de privacidade? E EU ODEIO ISSO!!! Agora voce vai fazer por merecer
 
-""")
+""".italic())
     
     combat2(player1: &esqueleto, player2: &coelho2)
     

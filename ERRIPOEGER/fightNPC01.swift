@@ -16,7 +16,10 @@ var coelho1 = Combate1(name: "VOCÊ 🐇 ", hp: 20)
 struct Combate1 {
     var name: String
     var hp: Int
-
+    
+    //Ingresando texto antes de comecar a luta
+    
+    
     // Método para imprimir o estado atual do personagem
     func printStatus() {
         print("\(name): HP \(hp)")
@@ -43,7 +46,7 @@ struct Combate1 {
             ;     ¦-,╱_..--¦`-..__)cgD
             '¦¦--.._:
                 
-        """)
+        """.black())
     }
     
     func spider(){
@@ -69,7 +72,7 @@ struct Combate1 {
                $$                      $$
                 $$                    $$
                   $                   $
-        """)
+        """.red())
     }
 }
 
@@ -110,4 +113,16 @@ func combat1(player1: inout Combate1 , player2: inout Combate1) {
     } else {
         print("\(player1.name) venceu o combate!")
     }
+    
+    
+}
+func pathFigth(){
+    slowPrint(text: """
+    Você é bem CORAJOSO(A), essa porta é um dungeon com varias ARANHAS!!!!! 🕸️🕸️🕸️🕸️🕸️🕸️🕸️
+    """.italic())
+    slowPrint(text: """
+    AGORA TERAM MILHOES DE ARANAHS ACIMA DE VOCÊ!!!!!!
+    Calma, você tem uma única opção, lutar com a Rainha Aranha, se você conseguir ganhar dela, poderá continuar o caminho.
+    Boa sorte a luta começa AGORA!!!! .........
+    """.italic())
 }
