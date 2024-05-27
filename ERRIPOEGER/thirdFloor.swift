@@ -114,38 +114,38 @@ func monsterBig(){
     
     print("""
                     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-                    │  MUAHAHAHAHAHAAA!! Você achou que seria facil assim?      │
+                    │  MUAHAHAHAHAHAAA!! Você achou que seria facil assim?  │
                     ┗━━⌵━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                     """)
-    
+    readLine()
     print("""
                     ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
-                    │  Estamos só começando!    │
+                    │  Estamos só começando!  │
                     ┗━━⌵━━━━━━━━━━━━━━━━━━━━━━┛
                     """)
-    
+    readLine()
     print("""
                     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-                    │  Eu estava me divertindo muito enquanto observava você    │
-                    │  passar por todas as minhas salas, mas você sabia que     │
-                    │  isso é invasão de privacidade? E EU ODEIO ISSO!!!        │
-                    │  Agora voce vai fazer por merecer!                        │
+                    │  Eu estava me divertindo muito enquanto observava você │
+                    │  passar por todas as minhas salas, mas você sabia que  │
+                    │  isso é invasão de privacidade? E EU ODEIO ISSO!!!     │
+                    │  Agora voce vai fazer por merecer!                     │
                     ┗━━⌵━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                     """)
-    
+    readLine()
     print("""
                                     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-                                    │  Voce que pensa! Se prepare para ser destruído!   │
+                                    │  Voce que pensa! Se prepare para ser destruído! │
                                     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⌵━━┛
                     """)
-    
+    readLine()
     print("""
                     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-                    │  Ah é? Então vamos ver!! MUAHAHAHAHA!!    │
+                    │  Ah é? Então vamos ver!! MUAHAHAHAHA!!  │
                     ┗━━⌵━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                     """)
     
-    slowPrint(text: "— Ah é? Entao vamos ver! MUAHAHAHAH")
+    readLine()
     
     combat2(player1: &esqueleto, player2: &coelho2)
     
