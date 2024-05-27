@@ -95,9 +95,9 @@ func combat1(player1: inout Combate1 , player2: inout Combate1) {
         player2.hp -= damage1
         player1.hp -= damage2
         
-        if player2.hp <= 10 {
-            if let posicaoItem = buscarIndice(item: "Cenoura") {
-                inventoryList[posicaoItem].qty += 1
+            if let posicaoItem = buscarIndice(item: "Cenoura"), player2.hp <= 10  {
+                inventoryList[posicaoItem].qty -= 1
+                
                 print("Deseja usar cenouras para recuperar seu HP?")
                 print("""
 1 - Sim.
@@ -105,50 +105,54 @@ func combat1(player1: inout Combate1 , player2: inout Combate1) {
                  
 """)
                 
-                let recover = Int(readLine()!)!
-                if recover == 1 {
-                    player2.hp += 5
+                let recover = readLine()!
+                if let recover2 = Int(recover) {
+                    if recover2 == 1 {
+                        player2.hp += 5
+                    }
                 }
+                
             }
-        }
-            
-            // Imprimindo o estado atual dos personagens
-            print("\(player1.name) ataca \(player2.name) e causa \(damage1) de dano.")
-            player1.rabbit()
-            player2.printStatus()
-            
-            readLine()
-            
-            print()
-            
-            print("\(player2.name) ataca \(player1.name) e causa \(damage2) de dano.")
-            player2.spider()
-            player1.printStatus()
-            print("-----------------------------------------")
-        }
+
         
-        // Determinando o vencedor
-        if player1.hp <= 0 {
-            print("\(player2.name) venceu o combate!")
-        } else {
-            print("\(player1.name) venceu o combate!")
-            print("""
+        
+        // Imprimindo o estado atual dos personagens
+        print("\(player1.name) ataca \(player2.name) e causa \(damage1) de dano.")
+        player1.rabbit()
+        player2.printStatus()
+        
+        readLine()
+        
+        print()
+        
+        print("\(player2.name) ataca \(player1.name) e causa \(damage2) de dano.")
+        player2.spider()
+        player1.printStatus()
+        print("-----------------------------------------")
+    }
+    
+    // Determinando o vencedor
+    if player1.hp <= 0 {
+        print("\(player2.name) venceu o combate!")
+    } else {
+        print("\(player1.name) venceu o combate!")
+        print("""
                           ,-=-.
                          ╱  +  ╲
                          | ~~~ |
                          |R.I.P|
                     ╲vV,,|_____|V,VV,,
              """.red2())
-            
-            slowPrint(text: "Infelizmente você perdeu. Reabra o jogo para tentar novamente.")
-            
-            exit(0)
-        }
         
+        slowPrint(text: "Infelizmente você perdeu. Reabra o jogo para tentar novamente.")
         
+        exit(0)
     }
-    func pathFigth(){
-        slowPrint(text: "Você tem muita coragem! Essa porta levou você até uma grande teia de ARANHAS!")
-        slowPrint(text: "AGORA TEM VÁRIAS ARANHAS INDO ATRÁS DE VOCÊ!")
-        slowPrint(text: "Calma! Se você ganhar da Aranha Rainha, poderá continuar o caminho.")
-    }
+    
+    
+}
+func pathFigth(){
+    slowPrint(text: "Você tem muita coragem! Essa porta levou você até uma grande teia de ARANHAS!")
+    slowPrint(text: "AGORA TEM VÁRIAS ARANHAS INDO ATRÁS DE VOCÊ!")
+    slowPrint(text: "Calma! Se você ganhar da Aranha Rainha, poderá continuar o caminho.")
+}

@@ -20,11 +20,11 @@ func buscarIndice (item: String) -> Int? {
     
     for i in 0..<inventoryList.count {
         if inventoryList[i].item == item {
-            return i;
+            return i
         }
     }
     
-    return nil;
+    return nil
     
 }
 

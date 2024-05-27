@@ -15,7 +15,7 @@ var coelho2 = Combate2(name: "VOCÊ 🐇 ", hp: 50)
 struct Combate2 {
     var name: String
     var hp: Int
-
+    
     // Método para imprimir o estado atual do personagem
     func printStatus() {
         print("\(name): HP \(hp)")
@@ -80,7 +80,7 @@ struct Combate2 {
                                                    .--,_
                                                   ""  G
         """.white())
-
+        
     }
 }
 
@@ -103,19 +103,21 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
         player2.hp -= damage1
         player1.hp -= damage2
         
-        if player2.hp <= 25 {
-            if let posicaoItem = buscarIndice(item: "Cenoura") {
-                inventoryList[posicaoItem].qty += 1
-                print("Deseja usar cenouras para recuperar seu HP?")
-                print("""
-                  1 - Sim.
-                  2 - Não.
-                 
+        
+        if let posicaoItem = buscarIndice(item: "Cenoura"), player2.hp <= 99999  {
+            inventoryList[posicaoItem].qty -= 1
+            
+            print("Deseja usar cenouras para recuperar seu HP?")
+            print("""
+1 - Sim.
+2 - Não.
+             
 """)
-                
-                let recover = Int(readLine()!)!
-                if recover == 1 {
-                    player2.hp += 5
+            
+            let recover = readLine()!
+            if let recover2 = Int(recover) {
+                if recover2 == 1 {
+                    player2.hp += 555
                 }
             }
             
@@ -203,8 +205,8 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
                          |R.I.P|
                     ╲vV,,|_____|V,VV,,
              """.red2())
-
-            slowPrint(text: "Infelizmente você perdeu. Reabra o jogo para tentar novamente.")
+        
+        slowPrint(text: "Infelizmente você perdeu. Reabra o jogo para tentar novamente.")
         
         exit(0)
     }

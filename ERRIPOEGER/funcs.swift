@@ -245,7 +245,7 @@ func inventory() -> String? {
         print("Esse item não existe.")
         return inventory()
     }
-        
+    
     
 }
 //Para adicionar item no inventário, utilizar inventoryList.append((Quantidade, "Nome do Item"))
@@ -983,4 +983,4 @@ func charadaBarrelRewards() {
 
 
 
-              
+

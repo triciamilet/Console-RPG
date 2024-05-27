@@ -149,8 +149,6 @@ func monsterBig(){
     
     combat2(player1: &esqueleto, player2: &coelho2)
     
-    
-    
 }
 
 
