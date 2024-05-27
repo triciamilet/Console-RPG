@@ -95,13 +95,31 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
         var damage1 = Int.random(in: 1...7)
         var damage2 = Int.random(in: 1...7)
         
-        if armor {damage1 = Int.random(in 1...7-1)}
-        if sword {damage2 = Int.random(in 1...7+1)}
+        if armor {damage1 = Int.random(in: 1...6)}
+        if sword {damage2 = Int.random(in: 2...8)}
+        if shield {damage1 = Int.random(in: 0...6)}
         
         // Aplicando danos
         player2.hp -= damage1
         player1.hp -= damage2
         
+        if player2.hp <= 25 {
+            if let posicaoItem = buscarIndice(item: "Cenoura") {
+                inventoryList[posicaoItem].qty += 1
+                print("Deseja usar cenouras para recuperar seu HP?")
+                print("""
+                  1 - Sim.
+                  2 - Não.
+                 
+""")
+                
+                let recover = Int(readLine()!)!
+                if recover == 1 {
+                    player2.hp += 5
+                }
+            }
+            
+        }
         
         // Imprimindo o estado atual dos personagens
         print("\(player1.name) ataca \(player2.name) e causa \(damage1) de dano.")
@@ -148,8 +166,8 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
                      ^^╲..___,.--`
         """.red2())
         
-        slowPrint(text: "Parabens \(player2.name) venceu o combate!".italic())
-        slowPrint(text: "Você é digno de receber a joia valiosa 💎 que estava dentro do crânio do monstro. Poucos guerreiros chegaram até aqui. Espero contar com você em uma próxima missão. ATE JÁ!!!!".italic())
+        slowPrint(text: "Parabens \(player2.name) venceu o combate!")
+        slowPrint(text: "Você é digno de receber a joia valiosa 💎 que estava dentro do crânio do monstro. Poucos guerreiros chegaram até aqui. Espero contar com você em uma próxima missão. ATE JÁ!!!!")
         print("""
 
                                                                
@@ -171,8 +189,10 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
                 F::::::::FF           I::::::::IM::::::M               M::::::M
                 FFFFFFFFFFF           IIIIIIIIIIMMMMMMMM               MMMMMMMM
                                                                
-                                           
+                                   
 """.red2())
+        
+        exit(0)
         
     } else {
         print("\(player1.name) venceu o combate!")
@@ -184,7 +204,8 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
                     ╲vV,,|_____|V,VV,,
              """.red2())
 
-            slowPrint(text: "Infelizmente você perdeu. Reabra o jogo para tentar novamente.".italic())
-    
+            slowPrint(text: "Infelizmente você perdeu. Reabra o jogo para tentar novamente.")
+        
+        exit(0)
     }
 }

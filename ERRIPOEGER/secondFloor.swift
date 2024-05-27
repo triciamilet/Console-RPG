@@ -92,7 +92,7 @@ func doorNorth(){
         doorNorthChallenge()
         doors()
     }else{
-        slowChoice(text: "Você amarela e retorna para o salão de portas.".italic())
+        slowChoice(text: "Você amarela e retorna para o salão de portas.")
         doors()
         
     }
@@ -101,8 +101,8 @@ func doorNorth(){
 
 func doorNorthChallenge(){
     
-    slowPrint(text: "O corredor é bem mais longo e mais escuro do que você esperava. Muita areia entra nos seus olhos e dificulta a sua visão.".italic())
-    slowPrint(text: "Você começa andar em circulos e não sabe mais onde for parar. Talvez você tenha algum item melhor que o seu isqueiro que possa iluminar o lugar.".italic())
+    slowPrint(text: "O corredor é bem mais longo e mais escuro do que você esperava. Muita areia entra nos seus olhos e dificulta a sua visão.")
+    slowPrint(text: "Você começa andar em circulos e não sabe mais onde for parar. Talvez você tenha algum item melhor que o seu isqueiro que possa iluminar o lugar.")
     slowPrint(text: "ABRIR INVENTÁRIO.")
     
     selectCandle()
@@ -129,8 +129,8 @@ func barrel() {
     case 2:
         removerDoInventario(item: "Vela", qty: 1)
         if sword {
-            slowPrint(text: "Você empunha a sua espada e utiliza-a para atravessar o barril, partindo a madeira em duas.".italic())
-            slowPrint(text: "Você retira os destroços do caminho e olha lá dentro. Tem alguns itens. Você enfia a sua mão lá dentro para pegá-los.".italic())
+            slowPrint(text: "Você empunha a sua espada e utiliza-a para atravessar o barril, partindo a madeira em duas.")
+            slowPrint(text: "Você retira os destroços do caminho e olha lá dentro. Tem alguns itens. Você enfia a sua mão lá dentro para pegá-los.")
             
             if let posicaoItem = buscarIndice(item: "Escudo") {
                 inventoryList[posicaoItem].qty += 1
@@ -138,12 +138,12 @@ func barrel() {
                 inventoryList.append((1, "Escudo"))
             }
             
-            print("Você recebeu o item ESCUDO. Agora você dispõe de \(inventoryList[buscarIndice(item: "Escudo")!].qty) escudo".italic())
+            print("Você recebeu o item ESCUDO. Agora você dispõe de \(inventoryList[buscarIndice(item: "Escudo")!].qty) escudo")
             
-            slowChoice(text: "Você retorna para o salão de portas. O que você faz?".italic())
+            slowChoice(text: "Você retorna para o salão de portas. O que você faz?")
             doors()
         } else {
-            slowChoice(text: "Você não possui nenhuma ferramenta para destruir o barril. É melhor desistir dessa ideia.".italic())
+            slowChoice(text: "Você não possui nenhuma ferramenta para destruir o barril. É melhor desistir dessa ideia.")
             barrel()
         }
         break
@@ -171,7 +171,7 @@ func doorSouth() {
                                            Sul
    """.red2())
     
-    slowChoice(text: "Você espia pela porta e percebe que é um caminho cheio de teias.".italic())
+    slowChoice(text: "Você espia pela porta e percebe que é um caminho cheio de teias.")
     
     print("""
         1 - Continuar
@@ -229,13 +229,13 @@ func doorEast() {
     switch number {
         
     case 1:
-        slowPrint(text: "Você dá um primeiro passo à diante e... o chão se abre em baixo de você! Você caiu o andar inferior e perdeu 3 HP.".italic())
-        slowPrint(text: "Mesmo com dores nas pernas, você retorna ao terceiro andar. Agora você precisa tomar mais cuidado para não voltar no mesmo caminho.".italic())
+        slowPrint(text: "Você dá um primeiro passo à diante e... o chão se abre em baixo de você! Você caiu o andar inferior e perdeu 3 HP.")
+        slowPrint(text: "Mesmo com dores nas pernas, você retorna ao terceiro andar. Agora você precisa tomar mais cuidado para não voltar no mesmo caminho.")
         doors()
         break
         
     case 2:
-        slowChoice(text: "Você amarela e retorna para o salão de portas.".italic())
+        slowChoice(text: "Você amarela e retorna para o salão de portas.")
         doors()
         break
         
@@ -261,7 +261,7 @@ func doorWest() {
                                        Oeste
 """.red2())
     
-    slowChoice(text: "Você espia pela porta e percebe que a região tem escadas iluminadas logo à frente.".italic())
+    slowChoice(text: "Você espia pela porta e percebe que a região tem escadas iluminadas logo à frente.")
     
     print("""
           1 - Continuar
@@ -279,7 +279,7 @@ func doorWest() {
         break
         
     case 2:
-        slowChoice(text: "Você amarela e retorna para o salão de portas.".italic())
+        slowChoice(text: "Você amarela e retorna para o salão de portas.")
         doors()
         break
         

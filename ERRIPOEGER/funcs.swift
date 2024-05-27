@@ -980,3 +980,7 @@ func charadaBarrelRewards() {
     print("Você recebeu o item ESCUDO. Agora você dispõe de \(inventoryList[buscarIndice(item: "Escudo")!].qty) escudo")
 }
 
+
+
+
+              
