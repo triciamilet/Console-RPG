@@ -368,8 +368,10 @@ func coinsRemained (escolha: Int) {
             print("Você comprou o produto ARMADURA. Agora você dispõe de $\(inventoryList[0].qty) moedas")
             if let posicaoItem = buscarIndice(item: "Armadura") {
                 inventoryList[posicaoItem].qty += 1
+                armor = true
             } else {
                 inventoryList.append((1, "Armadura"))
+                armor = true
             }
         }else{
             print("Você não tem moedas suficientes 😢")
@@ -969,8 +971,10 @@ func charadaBarrelRewards() {
     
     if let posicaoItem = buscarIndice(item: "Escudo") {
         inventoryList[posicaoItem].qty += 1
+        shield = true
     } else {
         inventoryList.append((1, "Escudo"))
+        shield = true
     }
     
     print("Você recebeu o item ESCUDO. Agora você dispõe de \(inventoryList[buscarIndice(item: "Escudo")!].qty) escudo")

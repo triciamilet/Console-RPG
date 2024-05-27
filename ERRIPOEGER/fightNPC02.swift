@@ -92,8 +92,11 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
     // Loop de combate até que um dos personagens fique sem HP
     while player1.hp > 0 && player2.hp > 0 {
         // Simulando ataques
-        let damage1 = Int.random(in: 1...7)
-        let damage2 = Int.random(in: 1...7)
+        var damage1 = Int.random(in: 1...7)
+        var damage2 = Int.random(in: 1...7)
+        
+        if armor {damage1 = Int.random(in 1...7-1)}
+        if sword {damage2 = Int.random(in 1...7+1)}
         
         // Aplicando danos
         player2.hp -= damage1
