@@ -10,7 +10,7 @@ import Foundation
 var inventoryList: [(qty: Int, item: String)] = []
 var alavanca = false
 var sword = false
-inventoryList.append((10, "Moedas de Ouros"))
+inventoryList.append((10, "Moedas de Ouro"))
 inventoryList.append((1, "Isqueiro"))
 inventoryList.append((2, "Cenoura"))
 
@@ -48,39 +48,62 @@ func removerDoInventario(item: String, qty: Int) {
 //Adicionar uma introdução animada
 
 print()
-print("                                                                          ".bgRed())
+print("                                                                          ".bgRed2())
 print()
-
-slowPrint(text: "Muitos anos atrás, a desigualdade prevaleceu no mundo de Wald e a população foi dividida entre os mais ricos e o Resto. Agora, a única forma de sobrevivência é um paradoxo onde é necessário arriscar a sua própria vida todos os dias. Os mais ricos e poderosos da sociedade estão sempre sedentos pelo entretenimento sombrio de dificultar a vida dos outros e têm fortunas suficientes para pagar valores exorbitantes para contratá-los para fazerem o que eles desejam, que eles próprios não tem coragem de enfrentar.".italic().bold())
-
-slowPrint(text: "Você é o agente Coelho, um dos melhores dos milhares caçadores de recompensas. Após terminar a sua missão mais recente, você foi até o painel de solicitações para aceitar a próxima.".italic())
 
 print("""
-                                                   ┏━━━━━━┓                       ┏━━━━━━┓
-                                            ┏━━━━━━┻━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━┻━━━━━━┓
-                                            ┃    __  __ ___ ____ ____   ___  _____ ____         ┃
-                                            ┃    |  ╲╱  |_ _/ ___/ ___| / _ ╲| ____/ ___|       ┃
-                                            ┃    | |╲╱| || |╲___ ╲___ ╲┃ | | |  _| ╲___ ╲       ┃
-                                            ┃    | |  | || | ___) |__) | |_| | |___ ___) |      ┃
-                                            ┃    |_|  |_|___|____/____/ ╲___/|_____|____/       ┃
-                                            ┃                                                   ┃
-                                            ┃       ┏━━━━━┓                     ┏━━━━━┓         ┃
-                                            ┃   ┏━━━┻━┓   ┃  ┏━━━━━┓            ┃     ┃         ┃
-                                            ┃   ┃     ┃   ┃  ┃    ┏┻━━━━┓       ┃     ┃         ┃
-                                            ┃   ┃     ┃   ┃  ┃┏━━━┻━┓   ┃       ┃     ┣━━━━━┓   ┃
-                                            ┃   ┃    ┏┻━━━┻┓ ┃┃ 👑✱ ┃   ┃       ┗━━━━━┫     ┃   ┃
-                                            ┃   ┗━━━━┫     ┃ ┗┫ $99 ┃   ┃             ┃     ┃   ┃
-                                            ┃        ┃     ┃  ┃ 999 ┣━━━┛             ┃     ┃   ┃
-                                            ┃        ┃     ┃  ┗━━━━━┛                 ┗━━━━━┛   ┃
-                                            ┃        ┗━━━━━┛                                    ┃
-                                            ┗━━━━━━┳━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━┳━━━━━━┛
-                                                   ┃      ┃                       ┃      ┃
-                                                   ┊      ┊                       ┊      ┊
-""".black())
-print()
-slowPrint(text: "No painel, tem uma missão de alto risco. O objetivo é recuperar uma joia valiosa que está localizada em uma tumba no deserto de Skarlet. O risco é alto, mas a recompensa é maior ainda.".italic())
 
-slowPrint(text: "A viagem até as tumbas de Skarlet é sufocante. O sol escaldante e  o horizonte interminável lhe cansam, mas não são suficientes para te fazer desistir. Você anda por mais de 5 quilômetros sem parar até chegar no seu destino final.".italic())
+    _______  _        _______  _______  _        _______ _________
+    (  ____ ╲| ╲    ╱╲(  ___  )(  ____ )( ╲      (  ____ ╲╲__   __╱
+    | (    ╲╱|  ╲  ╱ ╱| (   ) || (    )|| (      | (    ╲╱   ) (
+    | (_____ |  (_╱ ╱ | (___) || (____)|| |      | (__       | |
+    (_____  )|   _ (  |  ___  ||     __)| |      |  __)      | |
+          ) ||  ( ╲ ╲ | (   ) || (╲ (   | |      | (         | |
+    ╱╲____) ||  ╱  ╲ ╲| )   ( || ) ╲ ╲__| (____╱╲| (____╱╲   | |
+    ╲_______)|_╱    ╲╱|╱     ╲||╱   ╲__╱(_______╱(_______╱   )_(
+                    _
+                    | |_ _____      _____ _ __
+                    | __╱ _ ╲ ╲ ╱╲ ╱ ╱ _ ╲ '__|
+                    | || (_) ╲ V  V ╱  __╱ |
+                     ╲__╲___╱ ╲_╱╲_╱ ╲___|_|
+                           
+
+""".red2())
+
+print()
+print("                                                                          ".bgRed2())
+print()
+
+slowPrint(text: "Muitos anos atrás, a desigualdade prevaleceu no mundo de Wald e a população foi dividida entre os mais ricos e o Resto. Agora, a única forma de sobrevivência é um paradoxo onde é necessário arriscar a sua própria vida todos os dias. Os mais ricos e poderosos da sociedade estão sempre sedentos pelo entretenimento sombrio de dificultar a vida dos outros e têm fortunas suficientes para pagar valores exorbitantes para contratá-los para fazerem o que eles desejam, que eles próprios não tem coragem de enfrentar.".bold())
+
+slowPrint(text: "Você é o agente Coelho, um dos melhores dos milhares caçadores de recompensas. Após terminar a sua missão mais recente, você foi até o painel de solicitações para aceitar a próxima.")
+
+print("""
+                   ┏━━━━━━┓                       ┏━━━━━━┓
+            ┏━━━━━━┻━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━┻━━━━━━┓
+            ┃    __  __ ___ ____ ____   ___  _____ ____         ┃
+            ┃    |  ╲╱  |_ _/ ___/ ___| / _ ╲| ____/ ___|       ┃
+            ┃    | |╲╱| || |╲___ ╲___ ╲┃ | | |  _| ╲___ ╲       ┃
+            ┃    | |  | || | ___) |__) | |_| | |___ ___) |      ┃
+            ┃    |_|  |_|___|____/____/ ╲___/|_____|____/       ┃
+            ┃                                                   ┃
+            ┃       ┏━━━━━┓                     ┏━━━━━┓         ┃
+            ┃   ┏━━━┻━┓   ┃  ┏━━━━━┓            ┃     ┃         ┃
+            ┃   ┃     ┃   ┃  ┃    ┏┻━━━━┓       ┃     ┃         ┃
+            ┃   ┃     ┃   ┃  ┃┏━━━┻━┓   ┃       ┃     ┣━━━━━┓   ┃
+            ┃   ┃    ┏┻━━━┻┓ ┃┃ 👑✱ ┃   ┃       ┗━━━━━┫     ┃   ┃
+            ┃   ┗━━━━┫     ┃ ┗┫ $99 ┃   ┃             ┃     ┃   ┃
+            ┃        ┃     ┃  ┃ 999 ┣━━━┛             ┃     ┃   ┃
+            ┃        ┃     ┃  ┗━━━━━┛                 ┗━━━━━┛   ┃
+            ┃        ┗━━━━━┛                                    ┃
+            ┗━━━━━━┳━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━┳━━━━━━┛
+                   ┃      ┃                       ┃      ┃
+                   ┊      ┊                       ┊      ┊
+""".red2())
+print()
+slowPrint(text: "No painel, tem uma missão de alto risco. O objetivo é recuperar uma joia valiosa que está localizada em uma tumba no deserto de Skarlet. O risco é alto, mas a recompensa é maior ainda.")
+
+slowPrint(text: "A viagem até as tumbas de Skarlet é sufocante. O sol escaldante e  o horizonte interminável lhe cansam, mas não são suficientes para te fazer desistir. Você anda por mais de 5 quilômetros sem parar até chegar no seu destino final.")
 
 print("""
 
@@ -126,11 +149,11 @@ print("""
     ┃                   ┃               ┃    ()()
     ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━┛    (ᴥ  )o
     
-""".blue())
+""".red2())
 
-slowPrint(text: "A construção é monumental e quase que etérea, você não consegue imaginar como que isso tudo poderia ter sido construído por seres vivos mortais. Você olha para cima para ver a imensidão e o prédio some em meio às nuvens.".italic())
+slowPrint(text: "A construção é monumental e quase que etérea, você não consegue imaginar como que isso tudo poderia ter sido construído por seres vivos mortais. Você olha para cima para ver a imensidão e o prédio some em meio às nuvens.")
 
-slowPrint(text: "Você anda em volta e analisa as paredes, parece que não há portas. Mas deve haver um meio de entrar.".italic())
+slowPrint(text: "Você anda em volta e analisa as paredes, parece que não há portas. Mas deve haver um meio de entrar.")
 
 firstChoice()
 
@@ -165,13 +188,13 @@ print("""
                          ⎝▁▁〇▁▁⎠
 
 
-""".bgCyan())
+""".red())
 
-slowPrint(text: "As tochas do lado de fora se apagaram subitamente, uma a uma, e uma porta enorme se abriu com agressividade. Lá dentro está muito escuro.".italic())
+slowPrint(text: "As tochas do lado de fora se apagaram subitamente, uma a uma, e uma porta enorme se abriu com agressividade. Lá dentro está muito escuro.")
 
 slowPrint(text: "ENTRAR.")
 
-slowPrint(text: "Você espanta qualquer medo que ameaçou sentir e atravessa a porta.".italic())
+slowPrint(text: "Você espanta qualquer medo que ameaçou sentir e atravessa a porta.")
 
 print("""
 
@@ -187,16 +210,16 @@ print("""
 
 """.red())
 
-slowPrint(text:"A porta fechou logo atrás de você, e agora você está preso dentro da tumba.".italic())
+slowPrint(text:"A porta fechou logo atrás de você, e agora você está preso dentro da tumba.")
 
-slowPrint(text: "Está muito escuro. Você não enxerga um palmo à frente. Talvez você tenha algum item que possa iluminar o lugar.".italic())
+slowPrint(text: "Está muito escuro. Você não enxerga um palmo à frente. Talvez você tenha algum item que possa iluminar o lugar.")
 
 slowPrint(text: "ABRIR INVENTÁRIO.")
 
 selectLighter()
 
 print()
-slowPrint(text: "Você dá passos furtivos e com cuidado, sempre olhando para todas as direções por precaução. Após uma longa caminhada, você se deparou com um piso elevado e dois caminhos para seguir.".italic())
+slowPrint(text: "Você dá passos furtivos e com cuidado, sempre olhando para todas as direções por precaução. Após uma longa caminhada, você se deparou com um piso elevado e dois caminhos para seguir.")
 
 secondChoice()
 

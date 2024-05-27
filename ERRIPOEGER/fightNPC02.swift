@@ -42,7 +42,7 @@ struct Combate2 {
             ;     ¦-,╱_..--¦`-..__)cgD
             '¦¦--.._:
                 
-        """)
+        """.yellow2())
     }
     
     func player1(){
@@ -79,7 +79,7 @@ struct Combate2 {
                                              "-.__""╲_|"-.__.-".╱      ╲ l
                                                    .--,_
                                                   ""  G
-        """)
+        """.white())
 
     }
 }
@@ -169,9 +169,19 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
                 FFFFFFFFFFF           IIIIIIIIIIMMMMMMMM               MMMMMMMM
                                                                
                                            
-""".bgCyan())
+""".red2())
         
     } else {
         print("\(player1.name) venceu o combate!")
+        print("""
+                          ,-=-.
+                         ╱  +  ╲
+                         | ~~~ |
+                         |R.I.P|
+                    ╲vV,,|_____|V,VV,,
+             """.red2())
+
+            slowPrint(text: "Infelizmente você perdeu. Reabra o jogo para tentar novamente.".italic())
+    
     }
 }

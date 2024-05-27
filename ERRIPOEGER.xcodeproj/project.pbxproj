@@ -15,6 +15,7 @@
 		49FD894F2BFBE0F2006104CA /* funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD894E2BFBE0F2006104CA /* funcs.swift */; };
 		49FD89512BFBE0FD006104CA /* funcsPrints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD89502BFBE0FD006104CA /* funcsPrints.swift */; };
 		49FD89532BFBE108006104CA /* colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD89522BFBE108006104CA /* colors.swift */; };
+		49FF2EBE2C04FB2900903D24 /* AAA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF2EBD2C04FB2900903D24 /* AAA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		49FD894E2BFBE0F2006104CA /* funcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funcs.swift; sourceTree = "<group>"; };
 		49FD89502BFBE0FD006104CA /* funcsPrints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funcsPrints.swift; sourceTree = "<group>"; };
 		49FD89522BFBE108006104CA /* colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colors.swift; sourceTree = "<group>"; };
+		49FF2EBD2C04FB2900903D24 /* AAA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAA.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		4948BDEF2BEE9BD100A88DA9 = {
 			isa = PBXGroup;
 			children = (
+				49FF2EBD2C04FB2900903D24 /* AAA.swift */,
 				4948BDFA2BEE9BD100A88DA9 /* ERRIPOEGER */,
 				4948BDF92BEE9BD100A88DA9 /* Products */,
 			);
@@ -148,6 +151,7 @@
 				4948BDFC2BEE9BD100A88DA9 /* main.swift in Sources */,
 				497DDCA22BFE6FA300A30BC8 /* thirdFloor.swift in Sources */,
 				49EB59F12BFFC40E0022F35D /* fightNPC01.swift in Sources */,
+				49FF2EBE2C04FB2900903D24 /* AAA.swift in Sources */,
 				49FD89512BFBE0FD006104CA /* funcsPrints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

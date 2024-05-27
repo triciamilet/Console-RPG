@@ -46,7 +46,7 @@ struct Combate1 {
             ;     ¦-,╱_..--¦`-..__)cgD
             '¦¦--.._:
                 
-        """.black())
+        """.yellow2())
     }
     
     func spider(){
@@ -72,7 +72,7 @@ struct Combate1 {
                $$                      $$
                 $$                    $$
                   $                   $
-        """.red())
+        """.blue2())
     }
 }
 
@@ -112,17 +112,22 @@ func combat1(player1: inout Combate1 , player2: inout Combate1) {
         print("\(player2.name) venceu o combate!")
     } else {
         print("\(player1.name) venceu o combate!")
+        print("""
+                          ,-=-.
+                         ╱  +  ╲
+                         | ~~~ |
+                         |R.I.P|
+                    ╲vV,,|_____|V,VV,,
+             """.red2())
+
+            slowPrint(text: "Infelizmente você perdeu. Reabra o jogo para tentar novamente.")
+    
     }
     
     
 }
 func pathFigth(){
-    slowPrint(text: """
-    Você é bem CORAJOSO(A), essa porta é um dungeon com varias ARANHAS!!!!! 🕸️🕸️🕸️🕸️🕸️🕸️🕸️
-    """.italic())
-    slowPrint(text: """
-    AGORA TERAM MILHOES DE ARANAHS ACIMA DE VOCÊ!!!!!!
-    Calma, você tem uma única opção, lutar com a Rainha Aranha, se você conseguir ganhar dela, poderá continuar o caminho.
-    Boa sorte a luta começa AGORA!!!! .........
-    """.italic())
+    slowPrint(text: "Você tem muita coragem! Essa porta levou você até uma grande teia de ARANHAS!")
+    slowPrint(text: "AGORA TEM VÁRIAS ARANHAS INDO ATRÁS DE VOCÊ!")
+    slowPrint(text: "Calma! Se você ganhar da Aranha Rainha, poderá continuar o caminho.")
 }

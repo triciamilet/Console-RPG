@@ -8,11 +8,8 @@
 import Foundation
 
 func secondFloor() {
-    slowPrint(text: "Você encontra escadas que o levam para o segundo andar!!!!")
-    slowPrint(text: " 🚨🚨🚨🚨")
-    slowPrint(text: " Você já andou a metade do caminho, o segundo andar estará cheio de surpresas e mais desafios que precisará enfrentar para poder continuar. ")
-    slowPrint(text: " ....... opa! neste andar temos uma sala enorme com varias portas, apenas quatro estão abertas")
-    
+    slowPrint(text: "Você encontra escadas que o levam para o segundo andar.")
+    slowPrint(text: "Neste andar temos uma sala enorme com varias portas, apenas quatro estão abertas")
     doors()
     
 }
@@ -28,7 +25,7 @@ func doors() {
 【▒▒▒▒▒▒▒▒】        【▒▒▒▒▒▒▒▒】      【▒▒▒▒▒▒▒▒】           【▒▒▒▒▒▒▒▒】
  【▒▒▒▒▒▒】          【▒▒▒▒▒▒】        【▒▒▒▒▒▒】             【▒▒▒▒▒▒】
    Norte                Sul             Leste                 Oeste
-""" .red())
+""" .red2())
     
     print("""
     \nEscolha uma delas :
@@ -79,7 +76,7 @@ func doorNorth(){
                                     【        】
                                      【______】
                                        Norte
-""")
+""".red2())
     
     slowChoice(text: "Você espia pela porta e percebe que é um caminho extremamente escuro.")
     print()
@@ -93,6 +90,7 @@ func doorNorth(){
     
     if (next2 == 1) {
         doorNorthChallenge()
+        doors()
     }else{
         slowChoice(text: "Você amarela e retorna para o salão de portas.".italic())
         doors()
@@ -171,7 +169,7 @@ func doorSouth() {
                                        【        】
                                         【______】
                                            Sul
-   """.red())
+   """.red2())
     
     slowChoice(text: "Você espia pela porta e percebe que é um caminho cheio de teias.".italic())
     
@@ -189,7 +187,7 @@ func doorSouth() {
     case 1:
         pathFigth()
         combat1(player1: &aranha, player2: &coelho1)
-        thirdFloor()
+        doors()
         break
         
     case 2:
@@ -215,7 +213,7 @@ func doorEast() {
                                        【        】
                                         【______】
                                         Leste
-   """.red())
+   """.red2())
     
     slowChoice(text: "Você espia pela porta e percebe que é o chão tem diversas marcas do tempo.")
     
@@ -261,7 +259,7 @@ func doorWest() {
                                     【        】
                                      【______】
                                        Oeste
-""".red())
+""".red2())
     
     slowChoice(text: "Você espia pela porta e percebe que a região tem escadas iluminadas logo à frente.".italic())
     

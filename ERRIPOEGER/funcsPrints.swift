@@ -15,7 +15,7 @@ func slowPrint(text: String) {
     let separatedText = text.split(separator: " ")
     setbuf(__stdoutp, nil) //To not bug the Console
     for word in separatedText {
-        print(word, terminator: " ")
+        print("\u{001B}[3m\(word)\u{001B}[0m", terminator: " ")
         usleep(10000)
     }
     print(" ▼")
