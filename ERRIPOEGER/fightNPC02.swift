@@ -9,7 +9,7 @@ import Foundation
 
 
 var esqueleto = Player2(name: "ESQUELETO 💀", hp: 50)
-var coelho2 = Player2(name: "VOCÊ 🐇 ", hp: 50)
+var coelho2 = Player2(name: "VOCÊ 🐇", hp: 50)
 
 
 struct Player2{
@@ -104,7 +104,7 @@ class Combate2 {
     func printStatus() {
         print("""
         ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓         ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-        │  \(player2.name): HP \(player2.hp)                      │         │  \(player1.name): HP \(player1.hp)               │
+        │  \(player2.name): HP \(player2.hp)                       │         │  \(player1.name): HP \(player1.hp)               │
         ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛         ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 """)
@@ -114,19 +114,19 @@ class Combate2 {
     func player1AtacaPlayer2(_ damage1: Int){
         // Imprimindo o estado atual dos personagens
         print("""
-                ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-                │  \(player1.name) ataca \(player2.name) e causa \(damage1) de dano.          │
-                ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-                """)
+                        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+                        │  \(player1.name) ataca \(player2.name) e causa \(damage1) de dano.                    │
+                        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                        """)
     }
     
     func player2AtacaPlayer1(_ damage2: Int){
         // Imprimindo o estado atual dos personagens
         print("""
-                ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-                │  \(player2.name) ataca \(player1.name) e causa \(damage2) de dano.          │
-                ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-                """)
+                        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+                        │  \(player2.name) ataca \(player1.name) e causa \(damage2) de dano.                    │
+                        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                        """)
     }
     
     
@@ -147,26 +147,21 @@ class Combate2 {
             
             if let posicaoItem = buscarIndice(item: "Cenoura"), player2.hp <= 25   {
                 
-                
-                print(inventoryList[posicaoItem])
-                print("Deseja usar cenouras para recuperar seu HP?")
+                print("Você tem \(inventoryList[buscarIndice(item: "Cenoura")!].qty) cenouras. Deseja usar cenouras para recuperar seu HP?")
                 print("""
             1 - Sim.
             2 - Não.
-                         
             """)
-                
-                removerDoInventario(item: "Cenoura", qty: 1)
-                
+
                 let recover = readLine()!
                 if let recover2 = Int(recover) {
                     if recover2 == 1 {
+                        removerDoInventario(item: "Cenoura", qty: 1)
                         player2.hp += 5
                     }
                 }
                 
             }
-            
             
             player1AtacaPlayer2(damage1)
             rabbit()

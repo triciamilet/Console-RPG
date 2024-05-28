@@ -96,19 +96,19 @@ class Combate1 {
     func player1AtacaPlayer2(_ damage1: Int){
         // Imprimindo o estado atual dos personagens
         print("""
-                ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-                │  \(player1.name) ataca \(player2.name) e causa \(damage1) de dano.│
-                ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-                """)
+                        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+                        │  \(player1.name) ataca \(player2.name) e causa \(damage1) de dano.                       │
+                        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                        """)
     }
     
     func player2AtacaPlayer1(_ damage2: Int){
         // Imprimindo o estado atual dos personagens
         print("""
-                ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-                │  \(player2.name) ataca \(player1.name) e causa \(damage2) de dano.          │
-                ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-                """)
+                        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+                        │  \(player2.name) ataca \(player1.name) e causa \(damage2) de dano.                       │
+                        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                        """)
     }
     
     func run(){
@@ -128,21 +128,18 @@ class Combate1 {
             
             if let posicaoItem = buscarIndice(item: "Cenoura"), player2.hp <= 10   {
                 
-                
-                print(inventoryList[posicaoItem])
-                print("Deseja usar cenouras para recuperar seu HP?")
+                print("Você tem \(inventoryList[buscarIndice(item: "Cenoura")!].qty) cenouras. Deseja usar cenouras para recuperar seu HP?")
                 print("""
             1 - Sim.
             2 - Não.
                          
             """)
-                
-                removerDoInventario(item: "Cenoura", qty: 1)
-                
+
                 let recover = readLine()!
                 if let recover2 = Int(recover) {
                     if recover2 == 1 {
                         player2.hp += 5
+                        removerDoInventario(item: "Cenoura", qty: 1)
                     }
                 }
                 
@@ -166,7 +163,7 @@ class Combate1 {
         // Determinando o vencedor
         if player1.hp <= 0 {
             print("\(player2.name) venceu o combate!")
-            thirdFloor()
+            doors()
         } else {
             print("\(player1.name) venceu o combate!")
             print("""
