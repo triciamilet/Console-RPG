@@ -36,8 +36,8 @@ func doors() {
      4. Oeste
     """.red())
     
-    var choice = readLine()
-    var number = Int(choice!)
+    let choice = readLine()
+    let number = Int(choice!)
     
     switch number {
     case 1:
@@ -117,8 +117,8 @@ func barrel() {
 """.red())
     print()
     
-    var choice = readLine()
-    var number = Int(choice!)
+    let choice = readLine()
+    let number = Int(choice!)
     
     switch number {
     case 1:
@@ -179,8 +179,8 @@ func doorSouth() {
         """.red())
     print()
     
-    var choice = readLine()
-    var number = Int(choice!)
+    let choice = readLine()
+    let number = Int(choice!)
     
     switch number {
         
@@ -223,8 +223,8 @@ func doorEast() {
              """.red())
     print()
     
-    var choice = readLine()
-    var number = Int(choice!)
+    let choice = readLine()
+    let number = Int(choice!)
     
     switch number {
         
@@ -269,8 +269,8 @@ func doorWest() {
           """.red())
     print()
     
-    var choice = readLine()
-    var number = Int(choice!)
+    let choice = readLine()
+    let number = Int(choice!)
     
     switch number {
         

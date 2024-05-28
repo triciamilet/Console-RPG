@@ -128,7 +128,7 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
         player2.rabbit2()
         player2.printStatus()
         
-        readLine()
+        _ = readLine()
         
         print()
         

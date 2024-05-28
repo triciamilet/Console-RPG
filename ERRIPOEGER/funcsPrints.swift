@@ -19,7 +19,7 @@ func slowPrint(text: String) {
         usleep(10000)
     }
     print(" ▼")
-    readLine()
+    _  = readLine()
 }
 
 //Função texto de escolha é mostrado devagar

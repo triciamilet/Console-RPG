@@ -97,7 +97,7 @@ func secondChoice() {
     2 - Direita.
     """ .red())
         print()
-        var answer = Int(readLine()!)
+        let answer = Int(readLine()!)
         if (answer == 2) {
             
             thirdChoice()
@@ -187,8 +187,8 @@ func thirdChoice() {
 """.red())
     print()
     
-    var choice = readLine()
-    var number = Int(choice!)
+    let choice = readLine()
+    let number = Int(choice!)
     
     switch number {
     case 1:
@@ -408,8 +408,8 @@ func fourthChoice() {
     3 - Voltar atrás e seguir adiante
     """.red())
     
-    var choice = readLine()
-    var number = Int(choice!)
+    let choice = readLine()
+    let number = Int(choice!)
     
     switch number{
         

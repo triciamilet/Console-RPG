@@ -42,7 +42,7 @@ func thirdFloor(){
           """.red())
     print()
     
-    var porta3 = Int(readLine()!)!
+    let porta3 = Int(readLine()!)!
     if(porta3 == 1){
         slowPrint(text: """
         Você anda com bastante cuidado para não ativar nenhum dispositivo de segurança e, de passo em passo, você se aproxima cada vez mais da joia. Com bastante atenção você estica a mão para puxar a joia e...
@@ -117,13 +117,13 @@ func monsterBig(){
                     │  MUAHAHAHAHAHAAA!! Você achou que seria facil assim?  │
                     ┗━━⌵━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                     """)
-    readLine()
+    _ = readLine()
     print("""
                     ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
                     │  Estamos só começando!  │
                     ┗━━⌵━━━━━━━━━━━━━━━━━━━━━━┛
                     """)
-    readLine()
+    _ = readLine()
     print("""
                     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
                     │  Eu estava me divertindo muito enquanto observava você │
@@ -132,20 +132,20 @@ func monsterBig(){
                     │  Agora voce vai fazer por merecer!                     │
                     ┗━━⌵━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                     """)
-    readLine()
+    _ = readLine()
     print("""
                                     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
                                     │  Voce que pensa! Se prepare para ser destruído! │
                                     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⌵━━┛
                     """)
-    readLine()
+    _ = readLine()
     print("""
                     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
                     │  Ah é? Então vamos ver!! MUAHAHAHAHA!!  │
                     ┗━━⌵━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                     """)
     
-    readLine()
+    _ = readLine()
     
     combat2(player1: &esqueleto, player2: &coelho2)
     
