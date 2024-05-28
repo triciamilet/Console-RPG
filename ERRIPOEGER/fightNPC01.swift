@@ -15,7 +15,7 @@ var coelho1 = Player(name: "VOCÊ 🐇 ", hp: 20)
 struct Player{
     var name: String
     var hp: Int
-    //Ingresando texto antes de comecar a luta
+    
 }
 func rabbit(){
     print("""
@@ -86,10 +86,9 @@ class Combate1 {
     // Método para imprimir o estado atual do personagem
     func printStatus() {
         print("""
-
-                    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓            ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-                    │  \(player1.name): HP \(player1.hp)    │            │  \(player2.name): HP \(player2.hp) │
-                    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛            ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓         ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        │  \(player2.name): HP \(player2.hp)                      │         │  \(player1.name): HP \(player1.hp)                   │
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛         ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 """)
     }
@@ -127,19 +126,18 @@ class Combate1 {
             player2.hp -= damage1
             player1.hp -= damage2
             
-            var posicaoItem : Int?
-            
-            posicaoItem = buscarIndice(item: "Cenoura")
-            
-            if (posicaoItem != nil) && player2.hp <= 10  {
-                inventoryList[posicaoItem!].qty -= 1
+            if let posicaoItem = buscarIndice(item: "Cenoura"), player2.hp <= 10   {
                 
+                
+                print(inventoryList[posicaoItem])
                 print("Deseja usar cenouras para recuperar seu HP?")
                 print("""
-        1 - Sim.
-        2 - Não.
+            1 - Sim.
+            2 - Não.
                          
-        """)
+            """)
+                
+                removerDoInventario(item: "Cenoura", qty: 1)
                 
                 let recover = readLine()!
                 if let recover2 = Int(recover) {
@@ -168,6 +166,7 @@ class Combate1 {
         // Determinando o vencedor
         if player1.hp <= 0 {
             print("\(player2.name) venceu o combate!")
+            thirdFloor()
         } else {
             print("\(player1.name) venceu o combate!")
             print("""
@@ -186,9 +185,6 @@ class Combate1 {
 }
 
 
-//Metodo para imprimir a imagem do player2
-
-
 
 
 
@@ -201,9 +197,8 @@ func combat1(player1: inout Player , player2: inout Player) {
     combate.run()
     
     
-    
-    
 }
+
 func pathFigth(){
     slowPrint(text: "Você tem muita coragem! Essa porta levou você até uma grande teia de ARANHAS!")
     slowPrint(text: "AGORA TEM VÁRIAS ARANHAS INDO ATRÁS DE VOCÊ!")

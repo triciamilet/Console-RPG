@@ -10,15 +10,16 @@ import Foundation
 //Função selecionar Isqueiro
 func selectLighter() {
     
-    if let selectedItem = inventory() {
-        if selectedItem == "Isqueiro" {
+
+        if inventory() == "Isqueiro" {
             print()
             print("\nVocê acendeu o isqueiro e o corredor se iluminou na sua frente.")
         } else {
             print("Não sei onde esse item pode ser útil.. Escolha outro")
             selectLighter()
+            
         }
-    }
+    
     
 }
 
@@ -68,6 +69,7 @@ func secondChoice() {
                 if answered == nil {
                     print("/nAs flechas te pegaram e você perdeu. :(")
                     print("Jogue novamente.")
+                    
                     exit(0)
                 }
                 
