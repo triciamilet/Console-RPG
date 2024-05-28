@@ -22,7 +22,11 @@ struct Combate1 {
     
     // Método para imprimir o estado atual do personagem
     func printStatus() {
-        print("\(name): HP \(hp)")
+        print("""
+                    ┏━━━━━━━━━━━━━━━━━━━━━┓
+                    │  \(name): HP \(hp)    │
+                    ┗━━━━━━━━━━━━━━━━━━━━━┛
+""")
     }
     
     //Metodo para imprimir a imagem do player2
@@ -95,38 +99,48 @@ func combat1(player1: inout Combate1 , player2: inout Combate1) {
         player2.hp -= damage1
         player1.hp -= damage2
         
-            if let posicaoItem = buscarIndice(item: "Cenoura"), player2.hp <= 10  {
-                inventoryList[posicaoItem].qty -= 1
-                
-                print("Deseja usar cenouras para recuperar seu HP?")
-                print("""
+        if let posicaoItem = buscarIndice(item: "Cenoura"), player2.hp <= 10  {
+            inventoryList[posicaoItem].qty -= 1
+            
+            print("Deseja usar cenouras para recuperar seu HP?")
+            print("""
 1 - Sim.
 2 - Não.
                  
 """)
-                
-                let recover = readLine()!
-                if let recover2 = Int(recover) {
-                    if recover2 == 1 {
-                        player2.hp += 5
-                    }
+            
+            let recover = readLine()!
+            if let recover2 = Int(recover) {
+                if recover2 == 1 {
+                    player2.hp += 5
                 }
-                
             }
-
+            
+        }
+        
         
         
         // Imprimindo o estado atual dos personagens
-        print("\(player1.name) ataca \(player2.name) e causa \(damage1) de dano.")
+        print("""
+                ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+                │  \(player1.name) ataca \(player2.name) e causa \(damage1) de dano.          │
+                ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                """)
         player1.rabbit()
         player2.printStatus()
+        player1.printStatus()
         
         readLine()
         
         print()
         
-        print("\(player2.name) ataca \(player1.name) e causa \(damage2) de dano.")
+        print("""
+                ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+                │  \(player2.name) ataca \(player1.name) e causa \(damage2) de dano.             │
+                ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                """)
         player2.spider()
+        player2.printStatus()
         player1.printStatus()
         print("-----------------------------------------")
     }

@@ -104,8 +104,8 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
         player1.hp -= damage2
         
         
-        if let posicaoItem = buscarIndice(item: "Cenoura"), player2.hp <= 99999  {
-            inventoryList[posicaoItem].qty -= 1
+        if let posicaoItem = buscarIndice(item: "Cenoura"), player2.hp <= 25   {
+            inventoryList[posicaoItem].qty += 1
             
             print("Deseja usar cenouras para recuperar seu HP?")
             print("""
@@ -117,7 +117,7 @@ func combat2(player1: inout Combate2, player2: inout Combate2) {
             let recover = readLine()!
             if let recover2 = Int(recover) {
                 if recover2 == 1 {
-                    player2.hp += 555
+                    player2.hp += 5
                 }
             }
             
