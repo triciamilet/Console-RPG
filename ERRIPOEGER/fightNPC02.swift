@@ -208,8 +208,8 @@ class Combate2 {
                          ^^╲..___,.--`
             """.red2())
             
-            slowPrint(text: "Parabens \(player2.name) venceu o combate!")
-            slowPrint(text: "Você é digno de receber a joia valiosa 💎 que estava dentro do crânio do monstro. Poucos guerreiros chegaram até aqui. Espero contar com você em uma próxima missão. ATE JÁ!!!!")
+            slowPrint(text: "Parabéns! \(player2.name) venceu o combate!")
+            slowPrint(text: "Você é digno de receber a joia valiosa 💎 que estava dentro do crânio do monstro. Poucos guerreiros chegaram até aqui. Espero contar com você em uma próxima missão. Até a próxima!")
             print("""
     
                                                                    

@@ -71,7 +71,6 @@ print("""
                            
 
 """.red2())
-doors()
 print()
 print("                                                                          ".bgRed2())
 print()
