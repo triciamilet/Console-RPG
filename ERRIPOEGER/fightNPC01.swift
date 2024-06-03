@@ -145,6 +145,28 @@ class Combate1 {
                 
             }
             
+            if player2.hp <= 10 {
+                        if let posicaoItem = buscarIndice(item: "Cenoura") {
+                            inventoryList[posicaoItem].qty += 1
+                            print("Deseja usar cenouras para recuperar seu HP?")
+                            print("""
+            1 - Sim.
+            2 - Não.
+                             
+            """)
+
+                            let recover = Int(readLine()!)!
+                            if recover == 1 {
+                                player2.hp += 5
+                            }
+                        }
+                    }
+            
+            
+            
+            
+            
+            
             player1AtacaPlayer2(damage1)
             rabbit()
             printStatus()

@@ -67,8 +67,15 @@ func secondChoice() {
             queue.asyncAfter(deadline: timeLimit) {
                 
                 if answered == nil {
-                    print("/nAs flechas te pegaram e você perdeu. :(")
-                    print("Jogue novamente.")
+                    print("""
+                                          ,-=-.
+                                         ╱  +  ╲
+                                         | ~~~ |
+                                         |R.I.P|
+                                    ╲vV,,|_____|V,VV,,
+                             """.red2())
+                    print("As flechas te pegaram e você perdeu. :(")
+                    print("Infelizmente você perdeu. Reabra o jogo para tentar novamente.")
                     
                     exit(0)
                 }
